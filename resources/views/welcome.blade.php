@@ -5,11 +5,11 @@
   <!--====== Required meta tags ======-->
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <meta name="description" content="" />
+  <meta name="description" content="Digital school application form platform for Tanzania. Create, publish, and sell online application forms with secure mobile money payments (M-Pesa, Airtel Money, Tigo Pesa). Streamline admissions for private schools, colleges, and vocational training centers." />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   <!--====== Title ======-->
-  <title>Business | Bootstrap 5 Business Template</title>
+  <title>School Application Form Platform | Digital Admissions Made Easy</title>
 
   <!--====== Favicon Icon ======-->
   <link rel="shortcut icon" href="{{ asset('assets/images/favicon.svg') }}" type="image/svg" />
@@ -38,8 +38,8 @@
       <div class="row">
         <div class="col-lg-12">
           <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand" href="index.html">
-              <img src="assets/images/white-logo.svg" alt="Logo" />
+            <a class="navbar-brand" href="{{ route('welcome') }}">
+              <img src="{{ asset('images/logo-text.png') }}" alt="SOSCOM Technologies" style="height: 30px;" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNine"
               aria-controls="navbarNine" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,9 +54,8 @@
                   <a class="page-scroll active" href="#hero-area">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="page-scroll" href="#services">Services</a>
+                  <a class="page-scroll" href="#services">Features</a>
                 </li>
-
                 <li class="nav-item">
                   <a class="page-scroll" href="#pricing">Pricing</a>
                 </li>
@@ -64,6 +63,7 @@
                   <a class="page-scroll" href="#contact">Contact</a>
                 </li>
               </ul>
+              
             </div>
 
             <div class="navbar-btn d-none d-lg-inline-block">
@@ -88,17 +88,17 @@
     </div>
     <div class="sidebar-content">
       <div class="sidebar-logo">
-        <a href="index.html"><img src="assets/images/logo.svg" alt="Logo" /></a>
+        <a href="{{ route('welcome') }}"><img src="{{ asset('images/soscom.png') }}" alt="Logo" style="height: 40px;" /></a>
       </div>
-      <p class="text">Lorem ipsum dolor sit amet adipisicing elit. Sapiente fuga nisi rerum iusto intro.</p>
+      <p class="text">Transform your school's admission process with our digital application form platform. Streamline applications, secure payments, and manage applicants effortlessly.</p>
       <!-- logo -->
       <div class="sidebar-menu">
         <h5 class="menu-title">Quick Links</h5>
         <ul>
-          <li><a href="javascript:void(0)">About Us</a></li>
-          <li><a href="javascript:void(0)">Our Team</a></li>
-          <li><a href="javascript:void(0)">Latest News</a></li>
-          <li><a href="javascript:void(0)">Contact Us</a></li>
+          <li><a href="{{ route('login') }}">School Login</a></li>
+          <li><a href="{{ route('register') }}">Register School</a></li>
+          <li><a href="#services">Features</a></li>
+          <li><a href="#contact">Contact Us</a></li>
         </ul>
       </div>
       <!-- menu -->
@@ -133,21 +133,16 @@
       <div class="row align-items-center">
         <div class="col-lg-6 col-md-12 col-12">
           <div class="header-content">
-            <h1>Corporate & Business Site Template by Ayro UI.</h1>
+            <h1>Digital School Application Forms Made Simple</h1>
             <p>
-              We are a digital agency that helps brands to achieve their
-              business outcomes. We see technology as a tool to create amazing
-              things.
+              Transform your school's admission process with our all-in-one platform. 
+              Create, publish, and sell online application forms with secure payments, 
+              automated management, and professional branding. Say goodbye to paper forms 
+              and manual cash handling.
             </p>
             <div class="button">
-              <a href="javascript:void(0)" class="btn primary-btn">Get Started</a>
-              <a href="https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM"
-                class="glightbox video-button">
-                <span class="btn icon-btn rounded-full">
-                  <i class="lni lni-play"></i>
-                </span>
-                <span class="text">Watch Intro</span>
-              </a>
+              <a href="{{ route('register') }}" class="btn primary-btn">Start Free Trial</a>
+              <a href="{{ route('login') }}" class="btn primary-btn-outline">School Login</a>
             </div>
           </div>
         </div>
@@ -256,46 +251,37 @@
         </div>
         <div class="col-lg-6 col-12">
           <div class="about-five-content">
-            <h6 class="small-title text-lg">OUR STORY</h6>
-            <h2 class="main-title fw-bold">Our team comes with the experience and knowledge</h2>
+            <h6 class="small-title text-lg">THE PROBLEM WE SOLVE</h6>
+            <h2 class="main-title fw-bold">Modernize Your School's Admission Process</h2>
             <div class="about-five-tab">
               <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                   <button class="nav-link active" id="nav-who-tab" data-bs-toggle="tab" data-bs-target="#nav-who"
-                    type="button" role="tab" aria-controls="nav-who" aria-selected="true">Who We Are</button>
+                    type="button" role="tab" aria-controls="nav-who" aria-selected="true">The Challenge</button>
                   <button class="nav-link" id="nav-vision-tab" data-bs-toggle="tab" data-bs-target="#nav-vision"
-                    type="button" role="tab" aria-controls="nav-vision" aria-selected="false">our Vision</button>
+                    type="button" role="tab" aria-controls="nav-vision" aria-selected="false">Our Solution</button>
                   <button class="nav-link" id="nav-history-tab" data-bs-toggle="tab" data-bs-target="#nav-history"
-                    type="button" role="tab" aria-controls="nav-history" aria-selected="false">our History</button>
+                    type="button" role="tab" aria-controls="nav-history" aria-selected="false">Who Benefits</button>
                 </div>
               </nav>
               <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-who" role="tabpanel" aria-labelledby="nav-who-tab">
-                  <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                    when
-                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, look like readable English.</p>
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have in some
-                    form,
-                    by injected humour.</p>
+                  <p>Schools currently struggle with manual processes - printing physical forms, distributing them, 
+                    collecting cash payments (fraud risk), and managing stacks of paperwork. This creates administrative 
+                    burden, delays, and potential security issues.</p>
+                  <p>Time-consuming manual work takes away from focusing on what matters most - educating students.</p>
                 </div>
                 <div class="tab-pane fade" id="nav-vision" role="tabpanel" aria-labelledby="nav-vision-tab">
-                  <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                    when
-                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, look like readable English.</p>
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have in some
-                    form,
-                    by injected humour.</p>
+                  <p>Our platform provides digital distribution, automated payments via mobile money (M-Pesa, Airtel Money, Tigo Pesa), 
+                    organized submissions, and reduced admin overhead. Schools get a branded form builder, secure payment processing, 
+                    applicant management dashboard, and automated data export.</p>
+                  <p>Everything you need in one place, accessible anytime, anywhere.</p>
                 </div>
                 <div class="tab-pane fade" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">
-                  <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                    when
-                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, look like readable English.</p>
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have in some
-                    form,
-                    by injected humour.</p>
+                  <p>Perfect for private secondary schools, colleges, vocational training centers, international schools, 
+                    and nursery & primary schools with competitive enrollment.</p>
+                  <p>Whether you're processing 50 or 5,000 applicants, our platform scales with your needs and helps you 
+                    manage admissions efficiently.</p>
                 </div>
               </div>
             </div>
@@ -316,11 +302,11 @@
         <div class="row">
           <div class="col-12">
             <div class="content">
-              <h6>Services</h6>
-              <h2 class="fw-bold">Our Best Services</h2>
+              <h6>Features</h6>
+              <h2 class="fw-bold">Everything You Need for Digital Admissions</h2>
               <p>
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form.
+                Powerful features designed to streamline your school's application process 
+                and reduce administrative burden while improving applicant experience.
               </p>
             </div>
           </div>
@@ -335,13 +321,13 @@
         <div class="col-lg-4 col-md-6">
           <div class="single-services">
             <div class="service-icon">
-              <i class="lni lni-capsule"></i>
+              <i class="lni lni-layout"></i>
             </div>
             <div class="service-content">
-              <h4>Refreshing Design</h4>
+              <h4>Self-Service Form Builder</h4>
               <p>
-                Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
-                eirmod tempor ividunt labor dolore magna.
+                Create custom application forms with drag-and-drop simplicity. 
+                Add fields for student information, documents, and more - no coding required.
               </p>
             </div>
           </div>
@@ -349,13 +335,13 @@
         <div class="col-lg-4 col-md-6">
           <div class="single-services">
             <div class="service-icon">
-              <i class="lni lni-bootstrap"></i>
+              <i class="lni lni-heart"></i>
             </div>
             <div class="service-content">
-              <h4>Solid Bootstrap 5</h4>
+              <h4>School Branding</h4>
               <p>
-                Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
-                eirmod tempor ividunt labor dolore magna.
+                Customize forms with your school logo, name, contacts, and intake year. 
+                Create a professional, branded experience for applicants.
               </p>
             </div>
           </div>
@@ -363,13 +349,13 @@
         <div class="col-lg-4 col-md-6">
           <div class="single-services">
             <div class="service-icon">
-              <i class="lni lni-shortcode"></i>
+              <i class="lni lni-wallet"></i>
             </div>
             <div class="service-content">
-              <h4>100+ Components</h4>
+              <h4>Secure Payment Integration</h4>
               <p>
-                Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
-                eirmod tempor ividunt labor dolore magna.
+                Accept payments via M-Pesa, Airtel Money, and Tigo Pesa. 
+                Secure, automated processing with instant verification and receipts.
               </p>
             </div>
           </div>
@@ -377,13 +363,13 @@
         <div class="col-lg-4 col-md-6">
           <div class="single-services">
             <div class="service-icon">
-              <i class="lni lni-dashboard"></i>
+              <i class="lni lni-users"></i>
             </div>
             <div class="service-content">
-              <h4>Speed Optimized</h4>
+              <h4>Applicant Management</h4>
               <p>
-                Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
-                eirmod tempor ividunt labor dolore magna.
+                Track all submissions in one dashboard. View applicant details, 
+                payment status, documents, and manage the entire admission process.
               </p>
             </div>
           </div>
@@ -391,13 +377,13 @@
         <div class="col-lg-4 col-md-6">
           <div class="single-services">
             <div class="service-icon">
-              <i class="lni lni-layers"></i>
+              <i class="lni lni-link"></i>
             </div>
             <div class="service-content">
-              <h4>Fully Customizable</h4>
+              <h4>Shareable Public Links</h4>
               <p>
-                Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
-                eirmod tempor ividunt labor dolore magna.
+                System automatically generates unique public URLs for your forms. 
+                Share via website, social media, WhatsApp, or email instantly.
               </p>
             </div>
           </div>
@@ -405,13 +391,13 @@
         <div class="col-lg-4 col-md-6">
           <div class="single-services">
             <div class="service-icon">
-              <i class="lni lni-reload"></i>
+              <i class="lni lni-download"></i>
             </div>
             <div class="service-content">
-              <h4>Regular Updates</h4>
+              <h4>Data Export & Reports</h4>
               <p>
-                Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
-                eirmod tempor ividunt labor dolore magna.
+                Export applicant data in Excel, CSV, or PDF formats. 
+                Generate reports on payments, conversions, and applicant statistics.
               </p>
             </div>
           </div>
@@ -431,10 +417,10 @@
           <div class="col-12">
             <div class="content">
               <h6>Pricing</h6>
-              <h2 class="fw-bold">Pricing & Plans</h2>
+              <h2 class="fw-bold">Pay Only When You Earn</h2>
               <p>
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form.
+                No upfront costs. Schools pay nothing until they start receiving applications. 
+                We only take a small commission from successful form sales.
               </p>
             </div>
           </div>
@@ -449,27 +435,30 @@
         <div class="col-lg-4 col-md-6 col-12">
           <div class="pricing-style-fourteen">
             <div class="table-head">
-              <h6 class="title">Starter</h4>
-                <p>Lorem Ipsum is simply dummy text of the printing and industry.</p>
-                <div class="price">
-                  <h2 class="amount">
-                    <span class="currency">$</span>0<span class="duration">/mo </span>
-                  </h2>
-                </div>
+              <h6 class="title">Standard Commission</h6>
+              <p>Perfect for schools starting their digital journey</p>
+              <div class="price">
+                <h2 class="amount">
+                  <span class="currency">15%</span><span class="duration"> commission</span>
+                </h2>
+                <p class="mt-2">Platform fee per application</p>
+              </div>
             </div>
 
             <div class="light-rounded-buttons">
-              <a href="javascript:void(0)" class="btn primary-btn-outline">
-                Start free trial
+              <a href="{{ route('register') }}" class="btn primary-btn-outline">
+                Get Started
               </a>
             </div>
 
             <div class="table-content">
               <ul class="table-list">
-                <li> <i class="lni lni-checkmark-circle"></i> Cras justo odio.</li>
-                <li> <i class="lni lni-checkmark-circle"></i> Dapibus ac facilisis in.</li>
-                <li> <i class="lni lni-checkmark-circle deactive"></i> Morbi leo risus.</li>
-                <li> <i class="lni lni-checkmark-circle deactive"></i> Excepteur sint occaecat velit.</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Form builder & customization</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Payment integration (M-Pesa, Airtel, Tigo)</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Applicant management dashboard</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Data export (Excel/CSV/PDF)</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Shareable public links</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Receipt generation with QR codes</li>
               </ul>
             </div>
           </div>
@@ -477,27 +466,30 @@
         <div class="col-lg-4 col-md-6 col-12">
           <div class="pricing-style-fourteen middle">
             <div class="table-head">
-              <h6 class="title">Exclusive</h4>
-                <p>Lorem Ipsum is simply dummy text of the printing and industry.</p>
-                <div class="price">
-                  <h2 class="amount">
-                    <span class="currency">$</span>99<span class="duration">/mo </span>
-                  </h2>
-                </div>
+              <h6 class="title">Premium Commission</h6>
+              <p>Best value for high-volume schools</p>
+              <div class="price">
+                <h2 class="amount">
+                  <span class="currency">10%</span><span class="duration"> commission</span>
+                </h2>
+                <p class="mt-2">Lower platform fee</p>
+              </div>
             </div>
 
             <div class="light-rounded-buttons">
-              <a href="javascript:void(0)" class="btn primary-btn">
-                Start free trial
+              <a href="{{ route('register') }}" class="btn primary-btn">
+                Get Started
               </a>
             </div>
 
             <div class="table-content">
               <ul class="table-list">
-                <li> <i class="lni lni-checkmark-circle"></i> Cras justo odio.</li>
-                <li> <i class="lni lni-checkmark-circle"></i> Dapibus ac facilisis in.</li>
-                <li> <i class="lni lni-checkmark-circle"></i> Morbi leo risus.</li>
-                <li> <i class="lni lni-checkmark-circle deactive"></i> Excepteur sint occaecat velit.</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Everything in Standard</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Priority support</li>
+                <li> <i class="lni lni-checkmark-circle"></i> SMS notifications</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Advanced analytics</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Bulk import/export</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Custom branding options</li>
               </ul>
             </div>
           </div>
@@ -505,27 +497,30 @@
         <div class="col-lg-4 col-md-6 col-12">
           <div class="pricing-style-fourteen">
             <div class="table-head">
-              <h6 class="title">Premium</h4>
-                <p>Lorem Ipsum is simply dummy text of the printing and industry.</p>
-                <div class="price">
-                  <h2 class="amount">
-                    <span class="currency">$</span>150<span class="duration">/mo </span>
-                  </h2>
-                </div>
+              <h6 class="title">Example Calculation</h6>
+              <p>See how it works</p>
+              <div class="price">
+                <h2 class="amount">
+                  <span class="currency">30,000</span><span class="duration"> TZS</span>
+                </h2>
+                <p class="mt-2">Per application fee</p>
+              </div>
             </div>
 
             <div class="light-rounded-buttons">
-              <a href="javascript:void(0)" class="btn primary-btn-outline">
-                Start free trial
+              <a href="{{ route('register') }}" class="btn primary-btn-outline">
+                Try It Now
               </a>
             </div>
 
             <div class="table-content">
               <ul class="table-list">
-                <li> <i class="lni lni-checkmark-circle"></i> Cras justo odio.</li>
-                <li> <i class="lni lni-checkmark-circle"></i> Dapibus ac facilisis in.</li>
-                <li> <i class="lni lni-checkmark-circle"></i> Morbi leo risus.</li>
-                <li> <i class="lni lni-checkmark-circle"></i> Excepteur sint occaecat velit.</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Student pays: <strong>30,000 TZS</strong></li>
+                <li> <i class="lni lni-checkmark-circle"></i> Platform fee (15%): <strong>4,500 TZS</strong></li>
+                <li> <i class="lni lni-checkmark-circle"></i> <strong>School receives: 25,500 TZS</strong></li>
+                <li> <i class="lni lni-checkmark-circle"></i> No upfront costs</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Automated payouts</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Transparent reporting</li>
               </ul>
             </div>
           </div>
@@ -543,16 +538,15 @@
       <div class="row justify-content-center">
         <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-9">
           <div class="inner-content">
-            <h2>We love to make perfect <br />solutions for your business</h2>
+            <h2>Ready to Transform Your <br />School's Admission Process?</h2>
             <p>
-              Why I say old chap that is, spiffing off his nut cor blimey
-              guvnords geeza<br />
-              bloke knees up bobby, sloshed arse William cack Richard. Bloke
-              fanny around chesed of bum bag old lost the pilot say there
-              spiffing off his nut.
+              Join hundreds of schools already using our platform to streamline admissions, 
+              reduce administrative burden, and provide a better experience for applicants.<br />
+              Get started in minutes - no upfront costs, no credit card required.
             </p>
             <div class="light-rounded-buttons">
-              <a href="javascript:void(0)" class="btn primary-btn-outline">Get Started</a>
+              <a href="{{ route('register') }}" class="btn primary-btn-outline">Register Your School</a>
+              <a href="{{ route('login') }}" class="btn primary-btn ms-2">Login to Dashboard</a>
             </div>
           </div>
         </div>
@@ -571,11 +565,11 @@
         <div class="row">
           <div class="col-12">
             <div class="content">
-              <h6>latest news</h6>
-              <h2 class="fw-bold">Latest News & Blog</h2>
+              <h6>Success Stories</h6>
+              <h2 class="fw-bold">Schools Trust Our Platform</h2>
               <p>
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form.
+                See how schools are transforming their admission process and 
+                saving time while improving applicant experience.
               </p>
             </div>
           </div>
@@ -599,12 +593,11 @@
             </div>
             <div class="content-body">
               <h4 class="title">
-                <a href="javascript:void(0)"> Make your team a Design driven company </a>
+                <a href="javascript:void(0)"> Streamlined Admissions Process </a>
               </h4>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard.
+                Private secondary schools are processing hundreds of applications 
+                faster than ever before, with automated payments and organized data.
               </p>
             </div>
           </div>
@@ -623,13 +616,12 @@
             <div class="content-body">
               <h4 class="title">
                 <a href="javascript:void(0)">
-                  The newest web framework that changed the world
+                  Secure Payment Processing
                 </a>
               </h4>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard.
+                International schools benefit from integrated mobile money payments 
+                (M-Pesa, Airtel Money, Tigo Pesa) with instant verification and receipts.
               </p>
             </div>
           </div>
@@ -648,13 +640,12 @@
             <div class="content-body">
               <h4 class="title">
                 <a href="javascript:void(0)">
-                  5 ways to improve user retention for your startup
+                  Reduced Administrative Overhead
                 </a>
               </h4>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard.
+                Vocational training centers are saving hours of manual work 
+                with automated form submissions, payment tracking, and data exports.
               </p>
             </div>
           </div>
@@ -673,11 +664,11 @@
         <div class="row">
           <div class="col-12">
             <div class="content">
-              <h6>Meet our Clients</h6>
-              <h2 class="fw-bold">Our Awesome Clients</h2>
+              <h6>Trusted By</h6>
+              <h2 class="fw-bold">Schools Across Tanzania</h2>
               <p>
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form.
+                Our platform is trusted by private secondary schools, colleges, 
+                vocational training centers, international schools, and primary schools.
               </p>
             </div>
           </div>
@@ -730,8 +721,8 @@
                   </div>
                   <div class="contact-content">
                     <h4>Contact</h4>
-                    <p>0984537278623</p>
-                    <p>yourmail@gmail.com</p>
+                    <p>+255 XXX XXX XXX</p>
+                    <p>support@soscomtech.com</p>
                   </div>
                 </div>
               </div>
@@ -742,8 +733,8 @@
                   </div>
                   <div class="contact-content">
                     <h4>Address</h4>
-                    <p>175 5th Ave, New York, NY 10010</p>
-                    <p>United States</p>
+                    <p>Dar es Salaam, Tanzania</p>
+                    <p>East Africa</p>
                   </div>
                 </div>
               </div>
@@ -753,9 +744,9 @@
                     <i class="lni lni-alarm-clock"></i>
                   </div>
                   <div class="contact-content">
-                    <h4>Schedule</h4>
-                    <p>24 Hours / 7 Days Open</p>
-                    <p>Office time: 10 AM - 5:30 PM</p>
+                    <h4>Support</h4>
+                    <p>24/7 Platform Access</p>
+                    <p>Office hours: Mon-Fri 9 AM - 5 PM EAT</p>
                   </div>
                 </div>
               </div>
@@ -769,11 +760,11 @@
                 <div class="section-title text-center">
                   <span> Get in Touch </span>
                   <h2>
-                    Ready to Get Started
+                    Have Questions? We're Here to Help
                   </h2>
                   <p>
-                    At vero eos et accusamus et iusto odio dignissimos ducimus
-                    quiblanditiis praesentium
+                    Contact us for more information about our platform, pricing, 
+                    or to schedule a demo for your school.
                   </p>
                 </div>
               </div>
@@ -838,17 +829,16 @@
               <!-- Single Widget -->
               <div class="footer-widget f-about">
                 <div class="logo">
-                  <a href="index.html">
-                    <img src="assets/images/logo.svg" alt="#" class="img-fluid" />
+                  <a href="{{ route('welcome') }}">
+                    <img src="{{ asset('images/soscom.png') }}" alt="SOSCOM Technologies" class="img-fluid" style="height: 40px;" />
                   </a>
                 </div>
                 <p>
-                  Making the world a better place through constructing elegant
-                  hierarchies.
+                  Empowering schools with digital solutions for modern admission processes. 
+                  Transform your administrative workflow and focus on what matters - education.
                 </p>
                 <p class="copyright-text">
-                  <span>© 2024 Ayro UI.</span>Designed and Developed by
-                  <a href="javascript:void(0)" rel="nofollow"> Ayro UI </a>. <br> Distributed by <a href="http://themewagon.com" target="_blank">ThemeWagon</a>
+                  <span>© {{ date('Y') }} SOSCOM Technologies.</span> All rights reserved. 
                 </p>
               </div>
               <!-- End Single Widget -->
@@ -856,12 +846,12 @@
             <div class="col-lg-2 col-md-6 col-12">
               <!-- Single Widget -->
               <div class="footer-widget f-link">
-                <h5>Solutions</h5>
+                <h5>Platform</h5>
                 <ul>
-                  <li><a href="javascript:void(0)">Marketing</a></li>
-                  <li><a href="javascript:void(0)">Analytics</a></li>
-                  <li><a href="javascript:void(0)">Commerce</a></li>
-                  <li><a href="javascript:void(0)">Insights</a></li>
+                  <li><a href="#services">Features</a></li>
+                  <li><a href="#pricing">Pricing</a></li>
+                  <li><a href="{{ route('register') }}">Get Started</a></li>
+                  <li><a href="{{ route('login') }}">Login</a></li>
                 </ul>
               </div>
               <!-- End Single Widget -->
@@ -869,12 +859,12 @@
             <div class="col-lg-2 col-md-6 col-12">
               <!-- Single Widget -->
               <div class="footer-widget f-link">
-                <h5>Support</h5>
+                <h5>Resources</h5>
                 <ul>
-                  <li><a href="javascript:void(0)">Pricing</a></li>
+                  <li><a href="#contact">Contact Us</a></li>
                   <li><a href="javascript:void(0)">Documentation</a></li>
-                  <li><a href="javascript:void(0)">Guides</a></li>
-                  <li><a href="javascript:void(0)">API Status</a></li>
+                  <li><a href="javascript:void(0)">FAQs</a></li>
+                  <li><a href="javascript:void(0)">Support</a></li>
                 </ul>
               </div>
               <!-- End Single Widget -->
@@ -882,10 +872,10 @@
             <div class="col-lg-4 col-md-6 col-12">
               <!-- Single Widget -->
               <div class="footer-widget newsletter">
-                <h5>Subscribe</h5>
-                <p>Subscribe to our newsletter for the latest updates</p>
+                <h5>Stay Updated</h5>
+                <p>Get latest features and updates delivered to your inbox</p>
                 <form action="#" method="get" target="_blank" class="newsletter-form">
-                  <input name="EMAIL" placeholder="Email address" required="required" type="email" />
+                  <input name="EMAIL" placeholder="Your email address" required="required" type="email" />
                   <div class="button">
                     <button class="sub-btn">
                       <i class="lni lni-envelope"></i>
@@ -947,14 +937,8 @@
       overlayLeft.classList.add("open");
     });
 
-    //========= glightbox
-    GLightbox({
-      'href': 'https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM',
-      'type': 'video',
-      'source': 'youtube', //vimeo, youtube or local
-      'width': 900,
-      'autoplayVideos': true,
-    });
+    //========= glightbox (removed - no video needed)
+    // GLightbox can be added here if needed for future features
 
   </script>
 </body>
