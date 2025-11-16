@@ -7,6 +7,20 @@
                 <span class="text-muted">Registration # {{ $school->registration_number ?? '—' }}</span>
             </div>
         </div>
+        <div class="col-sm-6 p-md-0 justify-content-sm-end mt-sm-0 d-flex">
+            <ol class="breadcrumb">
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <x-responsive-nav-link :href="route('logout')"
+                        onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                        <i class="icon-key text-danger"></i>
+                        <span class="ml-2 text-danger">Logout </span>
+                    </x-responsive-nav-link>
+                </form>
+            </ol>
+        </div>
     </div>
 
     <div class="row">
@@ -18,6 +32,12 @@
                         <div class="media-body text-right">
                             <p class="fs-14 mb-2">Applicants</p>
                             <span class="fs-28">{{ $applicantCount }}</span>
+                            <div class="progress mt-2" style="height:6px;">
+                                @php($unpaid = max(($applicantCount ?? 0) - ($paidCount ?? 0), 0))
+                                @php($appPct = ($applicantCount ?? 0) > 0 ? number_format((($paidCount ?? 0) / $applicantCount) * 100, 0) : 0)
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: {{ $appPct }}%"></div>
+                            </div>
+                            <small class="text-muted d-block mt-1">{{ $paidCount }} paid, {{ $unpaid }} unpaid</small>
                         </div>
                     </div>
                 </div>
@@ -31,6 +51,10 @@
                         <div class="media-body text-right">
                             <p class="fs-14 mb-2">Paid</p>
                             <span class="fs-28">{{ $paidCount }}</span>
+                            <div class="progress mt-2" style="height:6px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: {{ $appPct }}%"></div>
+                            </div>
+                            <small class="text-muted d-block mt-1">{{ $appPct }}% conversion</small>
                         </div>
                     </div>
                 </div>
@@ -44,6 +68,11 @@
                         <div class="media-body text-right">
                             <p class="fs-14 mb-2">Revenue (TZS)</p>
                             <span class="fs-28">{{ number_format($revenueTzs) }}</span>
+                            <small class="text-muted d-block mt-1">Avg/paid: {{
+                                ($paidCount ?? 0) > 0
+                                ? number_format(round(($revenueTzs ?? 0) / max($paidCount,1)))
+                                : '—'
+                            }}</small>
                         </div>
                     </div>
                 </div>
@@ -57,6 +86,7 @@
                         <div class="media-body text-right">
                             <p class="fs-14 mb-2">Application Fee</p>
                             <span class="fs-28">{{ $applicationFee ? number_format($applicationFee) . ' TZS' : '—' }}</span>
+                            <small class="text-muted d-block mt-1">Configured per applicant</small>
                         </div>
                     </div>
                 </div>
@@ -85,6 +115,14 @@
                     @endif
                 </div>
             </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Applicants Trend</h4>
+                </div>
+                <div class="card-body">
+                    <div id="applicantsTrend" class="ct-chart ct-major-twelfth"></div>
+                </div>
+            </div>
         </div>
         <div class="col-lg-4">
             <div class="card">
@@ -100,8 +138,65 @@
                     </div>
                 </div>
             </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Revenue Breakdown</h4>
+                </div>
+                <div class="card-body">
+                    <div id="revenueBreakdown" class="ct-chart ct-square"></div>
+                    <div class="text-center mt-2">
+                        <span class="badge badge-success mr-2">Paid</span>
+                        <span class="badge badge-secondary">Unpaid</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                var applicants = parseInt({{ (int) ($applicantCount ?? 0) }}) || 0;
+                var paid = parseInt({{ (int) ($paidCount ?? 0) }}) || 0;
+                var unpaid = Math.max(applicants - paid, 0);
+
+                // Applicants Trend (simple synthetic split over last 7 periods)
+                var periods = ['W-6','W-5','W-4','W-3','W-2','W-1','Now'];
+                function spread(total, points) {
+                    var out = new Array(points).fill(0);
+                    for (var i = 0; i < total; i++) out[i % points]++;
+                    return out;
+                }
+                var applicantsSeries = spread(applicants, 7);
+                var paidSeries = spread(paid, 7);
+
+                new Chartist.Line('#applicantsTrend', {
+                    labels: periods,
+                    series: [
+                        applicantsSeries,
+                        paidSeries
+                    ]
+                }, {
+                    fullWidth: true,
+                    chartPadding: { right: 20 },
+                    low: 0,
+                    showPoint: true
+                });
+
+                // Revenue Breakdown (Paid vs Unpaid)
+                new Chartist.Pie('#revenueBreakdown', {
+                    series: [paid, unpaid]
+                }, {
+                    donut: true,
+                    donutWidth: 40,
+                    startAngle: 0,
+                    showLabel: false
+                });
+            } catch (e) {
+                // fail-safe: do nothing if Chartist not available
+            }
+        });
+    </script>
 
 </x-app-layout>
 

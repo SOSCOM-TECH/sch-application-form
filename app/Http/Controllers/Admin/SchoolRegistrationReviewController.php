@@ -5,9 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\School;
 use App\Models\SchoolRegistrationRequest;
+use App\Models\VerificationAudit;
+use App\Models\ActivityLog;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\SchoolApproved;
+use App\Notifications\SchoolRejected;
 
 class SchoolRegistrationReviewController extends Controller
 {
@@ -48,6 +54,25 @@ class SchoolRegistrationReviewController extends Controller
             'rejection_reason' => null,
         ]);
 
+        VerificationAudit::create([
+            'school_registration_request_id' => $requestModel->id,
+            'admin_user_id' => Auth::id(),
+            'action' => 'approved',
+            'note' => 'School approved and created',
+        ]);
+
+        ActivityLog::create([
+            'type' => 'approval',
+            'user_id' => Auth::id(),
+            'school_id' => $school->id,
+            'reference' => (string) $requestModel->id,
+            'message' => 'School approved',
+            'context' => ['school' => $school->only(['id','name']), 'request' => $requestModel->only(['id'])],
+        ]);
+
+        // Notify representative
+        $requestModel->representative->notify(new SchoolApproved($school->name));
+
         return redirect()->route('admin.requests.show', $requestModel)->with('status', 'Request approved and school created.');
     }
 
@@ -61,6 +86,25 @@ class SchoolRegistrationReviewController extends Controller
             'status' => 'rejected',
             'rejection_reason' => $validated['rejection_reason'],
         ]);
+
+        VerificationAudit::create([
+            'school_registration_request_id' => $requestModel->id,
+            'admin_user_id' => Auth::id(),
+            'action' => 'rejected',
+            'note' => $validated['rejection_reason'],
+        ]);
+
+        ActivityLog::create([
+            'type' => 'approval',
+            'user_id' => Auth::id(),
+            'school_id' => null,
+            'reference' => (string) $requestModel->id,
+            'message' => 'School request rejected',
+            'context' => ['request' => $requestModel->only(['id']), 'reason' => $validated['rejection_reason']],
+        ]);
+
+        // Notify representative
+        $requestModel->representative->notify(new SchoolRejected($validated['rejection_reason']));
 
         return redirect()->route('admin.requests.show', $requestModel)->with('status', 'Request rejected.');
     }

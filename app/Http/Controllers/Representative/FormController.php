@@ -105,6 +105,23 @@ class FormController extends Controller
         return view('representative/forms/preview', compact('form'));
     }
 
+    public function publish(Form $form): RedirectResponse
+    {
+        $this->authorizeForm($form);
+        if ($form->fields()->count() === 0) {
+            return back()->with('status', 'Add at least one field before publishing.');
+        }
+        $form->update(['is_active' => true]);
+        return back()->with('status', 'Form published. Public link is now live.');
+    }
+
+    public function unpublish(Form $form): RedirectResponse
+    {
+        $this->authorizeForm($form);
+        $form->update(['is_active' => false]);
+        return back()->with('status', 'Form unpublished.');
+    }
+
     protected function authorizeForm(Form $form): void
     {
         $school = Auth::user()->school;

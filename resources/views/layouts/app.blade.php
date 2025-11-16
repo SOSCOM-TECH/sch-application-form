@@ -20,6 +20,7 @@
     <link href="{{ asset('vendor/pg-calendar/css/pignose.calendar.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/chartist/css/chartist.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('icons/themify-icons/css/themify-icons.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('vendor/toastr/css/toastr.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/select2/css/select2.min.css') }}">
 

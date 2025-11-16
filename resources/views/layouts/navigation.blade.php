@@ -16,25 +16,24 @@
     <div class="header-content">
         <nav class="navbar navbar-expand">
             <div class="collapse navbar-collapse justify-content-between">
-                <div class="header-left d-flex align-items-center" style="font-size: 20px;">
-                    {{-- <img class="brand-title me-2" src="{{ asset('storage/' . $schoolLogo) }}" alt="School Logo"
-                        style="height: 40px; width: auto; margin-right: 10px;"> --}}
-
+                <div class="header-left d-flex align-items-center" style="font-size: 20px; color:#262626;">
+                <span>Test on nav if shown</span>
                 </div>
 
                 <ul class="navbar-nav header-right">
 
                     <li class="nav-item dropdown notification_dropdown">
-                        <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                            <i class="mdi mdi-bell"></i>
+                        <a class="nav-link text-dark" href="#" role="button" data-toggle="dropdown" style="color:#262626;">
+                            <i class="ti-bell" style="color:#262626;"></i>
                             <div class="pulse-css"></div>
                         </a>
 
                     </li>
 
                     <li class="nav-item dropdown header-profile">
-                        <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                            <i class="mdi mdi-account"></i>
+                        <a class="nav-link text-dark" href="#" role="button" data-toggle="dropdown" style="color:#262626;">
+                            <i class="ti-user" style="color:#262626;"></i>
+                            {{ auth()->user()->name }}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <x-responsive-nav-link :href="route('profile.edit')">

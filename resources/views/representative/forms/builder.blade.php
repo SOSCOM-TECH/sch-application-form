@@ -8,7 +8,25 @@
             </div>
         </div>
         <div class="col-sm-6 p-md-0 d-flex justify-content-end align-items-center">
-            <a href="{{ route('rep.forms.preview', $form) }}" class="btn btn-outline-secondary"><i class="ti ti-eye"></i> Preview</a>
+            <div class="btn-group me-2">
+                <a href="{{ route('rep.forms.preview', $form) }}" class="btn btn-outline-secondary"><i class="ti ti-eye"></i> Preview</a>
+            </div>
+            @if ($form->is_active)
+                <div class="btn-group me-2">
+                    <form method="POST" action="{{ route('rep.forms.unpublish', $form) }}">
+                        @csrf
+                        <button class="btn btn-warning"><i class="ti ti-eye-off"></i> Unpublish</button>
+                    </form>
+                </div>
+                <a href="{{ route('public.apply.pay', $form->slug) }}" target="_blank" class="btn btn-success">
+                    <i class="ti ti-link"></i> Public URL
+                </a>
+            @else
+                <form method="POST" action="{{ route('rep.forms.publish', $form) }}">
+                    @csrf
+                    <button class="btn btn-primary"><i class="ti ti-upload"></i> Publish</button>
+                </form>
+            @endif
         </div>
     </div>
 
@@ -65,6 +83,12 @@
                     @if ($form->fields->isEmpty())
                         <p class="text-muted">No fields yet. Add your first field.</p>
                     @else
+                        @if ($form->is_active)
+                            <div class="alert alert-info">
+                                This form is currently <strong>published</strong>. Changes will reflect immediately. Public link:
+                                <a href="{{ route('public.apply.pay', $form->slug) }}" target="_blank">{{ route('public.apply.pay', $form->slug) }}</a>
+                            </div>
+                        @endif
                         <ul class="list-group">
                             @foreach ($form->fields as $field)
                                 <li class="list-group-item d-flex justify-content-between align-items-center">

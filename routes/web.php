@@ -33,6 +33,19 @@ Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
     Route::get('/admin/requests/{requestModel}', [\App\Http\Controllers\Admin\SchoolRegistrationReviewController::class, 'show'])->name('admin.requests.show');
     Route::post('/admin/requests/{requestModel}/approve', [\App\Http\Controllers\Admin\SchoolRegistrationReviewController::class, 'approve'])->name('admin.requests.approve');
     Route::post('/admin/requests/{requestModel}/reject', [\App\Http\Controllers\Admin\SchoolRegistrationReviewController::class, 'reject'])->name('admin.requests.reject');
+
+    // Admin: Payments ledger
+    Route::get('/admin/payments', [\App\Http\Controllers\Admin\PaymentController::class, 'index'])->name('admin.payments.index');
+
+    // Admin: Schools management
+    Route::get('/admin/schools', [\App\Http\Controllers\Admin\SchoolController::class, 'index'])->name('admin.schools.index');
+    Route::get('/admin/schools/{school}', [\App\Http\Controllers\Admin\SchoolController::class, 'show'])->name('admin.schools.show');
+    Route::post('/admin/schools/{school}/suspend', [\App\Http\Controllers\Admin\SchoolController::class, 'suspend'])->name('admin.schools.suspend');
+    Route::post('/admin/schools/{school}/activate', [\App\Http\Controllers\Admin\SchoolController::class, 'activate'])->name('admin.schools.activate');
+
+    // Admin: Compliance
+    Route::get('/admin/compliance/audits', [\App\Http\Controllers\Admin\ComplianceController::class, 'audits'])->name('admin.compliance.audits');
+    Route::get('/admin/compliance/fraud', [\App\Http\Controllers\Admin\ComplianceController::class, 'fraud'])->name('admin.compliance.fraud');
 });
 
 // School representative dashboard
@@ -48,6 +61,15 @@ Route::middleware(['auth', 'verified', 'role:school_representative'])->group(fun
     Route::post('/client/forms/{form}/fields', [\App\Http\Controllers\Representative\FormController::class, 'addField'])->name('rep.forms.fields.store');
     Route::delete('/client/forms/{form}/fields/{field}', [\App\Http\Controllers\Representative\FormController::class, 'removeField'])->name('rep.forms.fields.destroy');
     Route::get('/client/forms/{form}/preview', [\App\Http\Controllers\Representative\FormController::class, 'preview'])->name('rep.forms.preview');
+    Route::post('/client/forms/{form}/publish', [\App\Http\Controllers\Representative\FormController::class, 'publish'])->name('rep.forms.publish');
+    Route::post('/client/forms/{form}/unpublish', [\App\Http\Controllers\Representative\FormController::class, 'unpublish'])->name('rep.forms.unpublish');
+
+    // Representative: Applicants
+    Route::get('/client/applicants', [\App\Http\Controllers\Representative\ApplicantController::class, 'index'])->name('rep.applicants.index');
+    Route::get('/client/applicants/{submission}', [\App\Http\Controllers\Representative\ApplicantController::class, 'show'])->name('rep.applicants.show');
+    Route::get('/client/applicants-export/csv', [\App\Http\Controllers\Representative\ApplicantController::class, 'exportCsv'])->name('rep.applicants.export.csv');
+    Route::get('/client/applicants-export/xlsx', [\App\Http\Controllers\Representative\ApplicantController::class, 'exportXlsx'])->name('rep.applicants.export.xlsx');
+    Route::get('/client/applicants-export/pdf', [\App\Http\Controllers\Representative\ApplicantController::class, 'exportPdf'])->name('rep.applicants.export.pdf');
 
     // Representative: School registration request
     Route::get('/representative/registration-request', [\App\Http\Controllers\Representative\SchoolRegistrationRequestController::class, 'create'])->name('rep.requests.create');
@@ -55,6 +77,12 @@ Route::middleware(['auth', 'verified', 'role:school_representative'])->group(fun
     Route::get('/representative/registration-request/{requestModel}', [\App\Http\Controllers\Representative\SchoolRegistrationRequestController::class, 'show'])->name('rep.requests.show');
 });
 
+// Public applicant routes (simulation)
+Route::get('/apply/{slug}', [\App\Http\Controllers\Public\ApplyController::class, 'pay'])->middleware('throttle:60,1')->name('public.apply.pay');
+Route::post('/apply/{slug}/simulate', [\App\Http\Controllers\Public\ApplyController::class, 'simulate'])->middleware('throttle:20,1')->name('public.apply.simulate');
+Route::get('/apply/{slug}/form', [\App\Http\Controllers\Public\ApplyController::class, 'form'])->middleware('throttle:60,1')->name('public.apply.form');
+Route::post('/apply/{slug}/submit', [\App\Http\Controllers\Public\ApplyController::class, 'submit'])->middleware('throttle:20,1')->name('public.apply.submit');
+Route::get('/apply/{slug}/confirmation', [\App\Http\Controllers\Public\ApplyController::class, 'confirmation'])->name('public.apply.confirmation');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

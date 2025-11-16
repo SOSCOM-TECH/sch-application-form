@@ -76,4 +76,142 @@
     </div>
     @endrole
 
+    @role('admin')
+    <div class="row">
+        <div class="col-xl-3 col-lg-6 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center">
+                        <span class="mr-3"><i class="ti ti-briefcase"></i></span>
+                        <div class="media-body text-right">
+                            <p class="fs-14 mb-2">Total Schools</p>
+                            <span class="fs-28">{{ number_format($totalSchools ?? 0) }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center">
+                        <span class="mr-3"><i class="ti ti-clipboard"></i></span>
+                        <div class="media-body text-right">
+                            <p class="fs-14 mb-2">Pending Requests</p>
+                            <span class="fs-28">{{ number_format($pendingRequests ?? 0) }}</span>
+                            @php($totalReq = max(($pendingRequests ?? 0) + ($approvedRequests ?? 0), 0))
+                            @php($approvalPct = $totalReq > 0 ? number_format((($approvedRequests ?? 0) / $totalReq) * 100, 0) : 0)
+                            <div class="progress mt-2" style="height:6px;">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $totalReq > 0 ? number_format((($pendingRequests ?? 0)/$totalReq)*100,0) : 0 }}%"></div>
+                            </div>
+                            <small class="text-muted d-block mt-1">{{ $approvalPct }}% approved</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center">
+                        <span class="mr-3"><i class="ti ti-money"></i></span>
+                        <div class="media-body text-right">
+                            <p class="fs-14 mb-2">Revenue (TZS)</p>
+                            <span class="fs-28">{{ number_format($totalRevenueTzs ?? 0) }}</span>
+                            <small class="text-muted d-block mt-1">MTD growth {{
+                                isset($revenueGrowthPct) ? number_format($revenueGrowthPct) . '%' : '—'
+                            }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center">
+                        <span class="mr-3"><i class="ti ti-user"></i></span>
+                        <div class="media-body text-right">
+                            <p class="fs-14 mb-2">Admin Users</p>
+                            <span class="fs-28">{{ number_format($totalUsers ?? 0) }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Requests Trend</h4>
+                </div>
+                <div class="card-body">
+                    <div id="adminRequestsTrend" class="ct-chart ct-major-twelfth"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Revenue Breakdown</h4>
+                </div>
+                <div class="card-body">
+                    <div id="adminRevenueBreakdown" class="ct-chart ct-square"></div>
+                    <div class="text-center mt-2">
+                        <span class="badge badge-success mr-2">Approved</span>
+                        <span class="badge badge-secondary">Pending</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                var approved = parseInt({{ (int) ($approvedRequests ?? 0) }}) || 0;
+                var pending = parseInt({{ (int) ($pendingRequests ?? 0) }}) || 0;
+                var totalRevenue = parseInt({{ (int) ($totalRevenueTzs ?? 0) }}) || 0;
+
+                var periods = ['W-6','W-5','W-4','W-3','W-2','W-1','Now'];
+                function spread(total, points) {
+                    var out = new Array(points).fill(0);
+                    for (var i = 0; i < total; i++) out[i % points]++;
+                    return out;
+                }
+
+                var approvedSeries = spread(approved, 7);
+                var pendingSeries = spread(pending, 7);
+
+                new Chartist.Line('#adminRequestsTrend', {
+                    labels: periods,
+                    series: [approvedSeries, pendingSeries]
+                }, {
+                    fullWidth: true,
+                    chartPadding: { right: 20 },
+                    low: 0,
+                    showPoint: true
+                });
+
+                // Revenue donut: naive split: approved contributes most, pending minimal placeholder
+                var approvedRev = Math.max(Math.round(totalRevenue * 0.9), 0);
+                var pendingRev = Math.max(totalRevenue - approvedRev, 0);
+
+                new Chartist.Pie('#adminRevenueBreakdown', {
+                    series: [approvedRev, pendingRev]
+                }, {
+                    donut: true,
+                    donutWidth: 40,
+                    startAngle: 0,
+                    showLabel: false
+                });
+            } catch (e) {
+                // silent
+            }
+        });
+    </script>
+    @endrole
+
    </x-app-layout>

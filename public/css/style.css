@@ -7858,7 +7858,7 @@ a {
     text-decoration: none; }
 
 .content-body .container {
-  margin-top: 30px; }
+  margin-top: 0px; }
 
 .content-body .container-fluid {
   padding-right: 30px;
@@ -8056,7 +8056,7 @@ a {
 
 .nav-header {
   height: 5rem;
-  width: 16rem; //previous was 17.1875rem
+  width: 16rem; /* previous was 17.1875rem */
   display: inline-block;
   text-align: left;
   position: absolute;
@@ -8227,7 +8227,7 @@ a {
   background-color: #fff;
   z-index: 3;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  padding-left: 17.1875rem;
+  padding-left: 16rem;
   transition: all .2s ease; }
   .header .header-content {
     height: 100%;

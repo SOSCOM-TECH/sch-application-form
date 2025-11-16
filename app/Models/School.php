@@ -16,6 +16,8 @@ class School extends Model
         'type',
         'registration_number',
         'logo_path',
+        'cover_image_path',
+        'theme_color',
         'address',
         'phone',
         'email',
