@@ -42,9 +42,9 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        // Assign default role as client (school)
-        if (! $user->hasRole('client')) {
-            $user->assignRole('client');
+        // Assign default role as school representative
+        if (! $user->hasRole('school_representative')) {
+            $user->assignRole('school_representative');
         }
 
         event(new Registered($user));

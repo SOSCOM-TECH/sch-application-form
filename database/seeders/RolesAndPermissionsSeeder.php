@@ -31,13 +31,13 @@ class RolesAndPermissionsSeeder extends Seeder
 
         // Create roles
         $adminRole = Role::firstOrCreate(['name' => 'admin']);
-        $clientRole = Role::firstOrCreate(['name' => 'client']);
+        $schoolRepresentativeRole = Role::firstOrCreate(['name' => 'school_representative']);
 
         // Assign all permissions to admin
         $adminRole->syncPermissions(Permission::all());
 
-        // Assign a subset to client
-        $clientPermissions = [
+        // Assign a subset to school representative
+        $schoolRepresentativePermissions = [
             'manage forms',
             'view forms',
             'manage applicants',
@@ -46,7 +46,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'view reports',
             'manage exports',
         ];
-        $clientRole->syncPermissions(Permission::whereIn('name', $clientPermissions)->get());
+        $schoolRepresentativeRole->syncPermissions(Permission::whereIn('name', $schoolRepresentativePermissions)->get());
     }
 }
 
