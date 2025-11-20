@@ -15,6 +15,7 @@
                     <p class="mb-3"><strong>Status:</strong>
                         <span class="badge badge-{{ $request->status === 'approved' ? 'success' : ($request->status === 'rejected' ? 'danger' : 'warning') }}">{{ ucfirst($request->status) }}</span>
                     </p>
+                    <p class="mb-1"><strong>Commission Rate:</strong> {{ $request->commission_rate ?? '-' }}%</p>
 
                     <p class="mb-1"><strong>Representative:</strong> {{ $request->representative->name }} ({{ $request->representative->email }})</p>
 

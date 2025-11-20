@@ -21,7 +21,12 @@ class School extends Model
         'address',
         'phone',
         'email',
+        'commission_rate',
         'status',
+    ];
+
+    protected $casts = [
+        'commission_rate' => 'integer',
     ];
 
     public function representative(): BelongsTo

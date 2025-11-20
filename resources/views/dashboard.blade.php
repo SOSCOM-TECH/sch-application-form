@@ -68,7 +68,48 @@
                             <i class="ti ti-info-alt"></i>
                             To unlock your dashboard features, first submit your school registration for verification.
                         </div>
-                        <a href="{{ route('rep.requests.create') }}" class="btn btn-primary">Submit School Registration</a>
+                        {{-- PRICING CARDS --}}
+<div class="row mt-4 justify-content-center">
+
+    {{-- STANDARD --}}
+    <div class="col-lg-3 col-md-4 col-10 mb-3">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center p-2">
+                <h6 class="card-title mb-1">Standard Commission</h6>
+                <p class="text-muted small mb-2">Perfect for schools starting their digital journey</p>
+                <div class="fw-bold text-primary fs-2 mb-1">15%</div>
+                <p class="text-muted small mb-2">Platform fee per application</p>
+            </div>
+            <div class="card-footer bg-transparent border-0 pb-2">
+                <a href="{{ route('rep.requests.create', ['commission' => 15]) }}" class="btn btn-primary w-100 btn-sm">
+                    Submit School Registration
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {{-- PREMIUM --}}
+    <div class="col-lg-3 col-md-4 col-10 mb-3">
+        <div class="card h-100 shadow-sm border-primary">
+            <div class="card-header bg-primary text-white text-center py-1">
+                <span class="badge bg-light text-primary small">BEST VALUE</span>
+            </div>
+            <div class="card-body text-center p-2">
+                <h6 class="card-title mb-1">Premium Commission</h6>
+                <p class="text-muted small mb-2">Best value for high-volume schools</p>
+                <div class="fw-bold text-primary fs-2 mb-1">10%</div>
+                <p class="text-muted small mb-2">Lower platform fee</p>
+            </div>
+            <div class="card-footer bg-transparent border-0 pb-2">
+                <a href="{{ route('rep.requests.create', ['commission' => 10]) }}" class="btn btn-primary w-100 btn-sm">
+                    Submit School Registration
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
                     @endif
                 </div>
             </div>

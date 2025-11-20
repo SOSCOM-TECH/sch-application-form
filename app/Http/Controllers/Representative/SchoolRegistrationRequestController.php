@@ -12,13 +12,16 @@ use Illuminate\View\View;
 
 class SchoolRegistrationRequestController extends Controller
 {
-    public function create(): View|RedirectResponse
+    public function create(Request $request): View|RedirectResponse
     {
         $existing = Auth::user()->schoolRegistrationRequest;
         if ($existing) {
             return redirect()->route('rep.requests.show', $existing);
         }
-        return view('representative.requests.create');
+       // Pass commission to the view
+       $commission = $request->query('commission', 15); // Default to 15 if not provided
+        
+       return view('representative.requests.create', compact('commission'));
     }
 
     public function store(Request $request): RedirectResponse
@@ -28,6 +31,7 @@ class SchoolRegistrationRequestController extends Controller
             'school_type' => ['nullable', 'string', 'max:100'],
             'registration_number' => ['nullable', 'string', 'max:255'],
             'address' => ['nullable', 'string', 'max:255'],
+            'commission_rate' => ['required', 'numeric', 'in:10,15'], // Validate it's either 10 or 15
             'logo' => ['nullable', 'image', 'max:2048'],
             'proof_documents.*' => ['nullable', 'file', 'max:4096'],
         ]);
@@ -51,6 +55,7 @@ class SchoolRegistrationRequestController extends Controller
             'registration_number' => $validated['registration_number'] ?? null,
             'logo_path' => $logoPath,
             'address' => $validated['address'] ?? null,
+            'commission_rate' => $validated['commission_rate'],
             'proof_documents' => $proofPaths ?: null,
             'status' => 'pending',
         ]);

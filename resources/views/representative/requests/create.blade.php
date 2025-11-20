@@ -13,6 +13,15 @@
             <form method="POST" action="{{ route('rep.requests.store') }}" enctype="multipart/form-data">
                 @csrf
 
+                {{-- Hidden field to store commission rate --}}
+    <input type="hidden" name="commission_rate" value="{{ $commission ?? 15 }}">
+    
+    {{-- Display selected plan --}}
+    <div class="alert alert-info mb-4">
+        <strong>Selected Plan:</strong> 
+        {{ $commission == 10 ? 'Premium Commission (10%)' : 'Standard Commission (15%)' }}
+    </div>
+    
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label class="form-label">School Name</label>

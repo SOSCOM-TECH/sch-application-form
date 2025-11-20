@@ -45,6 +45,7 @@ class SchoolRegistrationReviewController extends Controller
             'registration_number' => $requestModel->registration_number,
             'logo_path' => $requestModel->logo_path,
             'address' => $requestModel->address,
+            'commission_rate' => $requestModel->commission_rate, 
             'status' => 'active',
         ]);
 
