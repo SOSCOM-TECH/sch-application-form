@@ -19,6 +19,7 @@ return new class extends Migration
             $table->json('proof_documents')->nullable(); // store array of paths
             $table->string('status')->default('pending'); // pending, approved, rejected
             $table->text('rejection_reason')->nullable();
+            $table->integer('commission_rate')->default(15);
             $table->timestamps();
         });
     }

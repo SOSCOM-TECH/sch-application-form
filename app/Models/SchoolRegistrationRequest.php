@@ -20,10 +20,12 @@ class SchoolRegistrationRequest extends Model
         'proof_documents',
         'status',
         'rejection_reason',
+        'commission_rate', // Added this
     ];
 
     protected $casts = [
         'proof_documents' => 'array',
+        'commission_rate' => 'integer',
     ];
 
     public function representative(): BelongsTo

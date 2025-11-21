@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
+            $table->integer('commission_rate')->default(15);
             $table->string('status')->default('active'); // future-proof
             $table->timestamps();
         });
