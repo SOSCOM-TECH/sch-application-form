@@ -74,7 +74,7 @@ function customCheckColor() {
   if (logoHeader !== "white") {
     $(".logo-header .navbar-brand").attr("src", "../image/logo.png");
   } else {
-    $(".logo-header .navbar-brand").attr("src", "../images/soscom.png");
+    $(".logo-header .navbar-brand").attr("src", "../images/logo/logo-dark.svg");
   }
 }
 

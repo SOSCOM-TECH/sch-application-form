@@ -13,20 +13,61 @@
 
   <!--====== Favicon Icon ======-->
   <link rel="shortcut icon" href="{{ asset('images/iconWhite.png') }}" type="image/svg" />
-
-  <!--====== Bootstrap css ======-->
   <link rel="stylesheet" href="{{ asset('landing/css/bootstrap.min.css') }}" />
-
-  <!--====== Line Icons css ======-->
   <link rel="stylesheet" href="{{ asset('landing/css/lineicons.css') }}" />
-
-  <!--====== Tiny Slider css ======-->
   <link rel="stylesheet" href="{{ asset('landing/css/tiny-slider.css') }}" />
-
-  <!--====== gLightBox css ======-->
   <link rel="stylesheet" href="{{ asset('landing/css/glightbox.min.css') }}" />
 
   <link rel="stylesheet" href="{{ asset('style.css') }}" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .contact-item {
+      transition: transform 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .single-services {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .single-services:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .pricing-style-fourteen {
+      transition: transform 0.3s ease;
+    }
+
+    .pricing-style-fourteen:hover {
+      transform: translateY(-10px);
+    }
+
+    .single-news {
+      transition: transform 0.3s ease;
+    }
+
+    .single-news:hover {
+      transform: translateY(-5px);
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 60px 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -39,7 +80,7 @@
         <div class="col-lg-12">
           <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="{{ route('welcome') }}">
-              <img src="{{ asset('images/logo-text.png') }}" alt="SOSCOM Technologies" style="height: 30px;" />
+              <img src="{{ asset('images/logo/logo-white.svg') }}" alt="SOSCOM Technologies"/>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNine"
               aria-controls="navbarNine" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,9 +119,7 @@
     <!-- container -->
   </section>
 
-  <!--====== NAVBAR NINE PART ENDS ======-->
 
-  <!--====== SIDEBAR PART START ======-->
 
   <div class="sidebar-left">
     <div class="sidebar-close">
@@ -88,7 +127,7 @@
     </div>
     <div class="sidebar-content">
       <div class="sidebar-logo">
-        <a href="{{ route('welcome') }}"><img src="{{ asset('images/soscom.png') }}" alt="Logo" style="height: 40px;" /></a>
+        <a href="{{ route('welcome') }}"><img src="{{ asset('images/logo/logo-dark.svg') }}" alt="Logo"/></a>
       </div>
       <p class="text">Transform your school's admission process with our digital application form platform. Streamline applications, secure payments, and manage applicants effortlessly.</p>
       <!-- logo -->
@@ -133,22 +172,22 @@
       <div class="row align-items-center">
         <div class="col-lg-6 col-md-12 col-12">
           <div class="header-content">
-            <h1>Digital School Application Forms Made Simple</h1>
-            <p>
+            <h1 class="mb-4">Digital School Application Forms Made Simple</h1>
+            <p class="mb-4">
               Transform your school's admission process with our all-in-one platform.
               Create, publish, and sell online application forms with secure payments,
               automated management, and professional branding. Say goodbye to paper forms
               and manual cash handling.
             </p>
-            <div class="button">
-              <a href="{{ route('register') }}" class="btn primary-btn">Start Free Trial</a>
-              <a href="{{ route('login') }}" class="btn primary-btn-outline">School Login</a>
+            <div class="button mt-4">
+              <a href="{{ route('register') }}" class="btn primary-btn me-3">Start Free Trial</a>
+              <a href="{{ route('login') }}" class="btn btn-info text-white">School Login</a>
             </div>
           </div>
         </div>
         <div class="col-lg-6 col-md-12 col-12">
           <div class="header-image">
-            <img src="landing/images/header/hero-image.jpg" alt="#" />
+            <img src="landing/images/header/hero-image.jpg" alt="Digital School Application Platform" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -158,10 +197,10 @@
 
   <!--====== ABOUT FIVE PART START ======-->
 
-  <section class="about-area about-five">
+  <section class="about-area about-five py-5">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-6 col-12">
+        <div class="col-lg-6 col-12 mb-5 mb-lg-0">
           <div class="about-image-five">
             <svg class="shape" width="106" height="134" viewBox="0 0 106 134" fill="none"
               xmlns="http://www.w3.org/2000/svg">
@@ -246,13 +285,13 @@
               <circle cx="60.333" cy="132" r="1.66667" fill="#DADADA" />
               <circle cx="104" cy="132" r="1.66667" fill="#DADADA" />
             </svg>
-            <img src="landing/images/about/about-img1.jpg" alt="about" />
+            <img src="landing/images/about/about-img1.jpg" alt="School Admission Process" class="img-fluid" />
           </div>
         </div>
         <div class="col-lg-6 col-12">
           <div class="about-five-content">
-            <h6 class="small-title text-lg">THE PROBLEM WE SOLVE</h6>
-            <h2 class="main-title fw-bold">Modernize Your School's Admission Process</h2>
+            <h6 class="small-title text-lg mb-3">THE PROBLEM WE SOLVE</h6>
+            <h2 class="main-title fw-bold mb-4">Modernize Your School's Admission Process</h2>
             <div class="about-five-tab">
               <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -295,7 +334,7 @@
   <!--====== ABOUT FIVE PART ENDS ======-->
 
   <!-- ===== service-area start ===== -->
-  <section id="services" class="services-area services-eight">
+  <section id="services" class="services-area services-eight py-5">
     <!--======  Start Section Title Five ======-->
     <div class="section-title-five">
       <div class="container">
@@ -303,7 +342,7 @@
           <div class="col-12">
             <div class="content">
               <h6>Features</h6>
-              <h2 class="fw-bold">Everything You Need for Digital Admissions</h2>
+              <h2 class="fw-bold mt-3 mb-3">Everything You Need for Digital Admissions</h2>
               <p>
                 Powerful features designed to streamline your school's application process
                 and reduce administrative burden while improving applicant experience.
@@ -317,14 +356,14 @@
     </div>
     <!--======  End Section Title Five ======-->
     <div class="container">
-      <div class="row">
+      <div class="row g-4">
         <div class="col-lg-4 col-md-6">
-          <div class="single-services">
+          <div class="single-services h-100">
             <div class="service-icon">
               <i class="lni lni-layout"></i>
             </div>
             <div class="service-content">
-              <h4>Self-Service Form Builder</h4>
+              <h4 class="mb-3">Self-Service Form Builder</h4>
               <p>
                 Create custom application forms with drag-and-drop simplicity.
                 Add fields for student information, documents, and more - no coding required.
@@ -333,12 +372,12 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
-          <div class="single-services">
+          <div class="single-services h-100">
             <div class="service-icon">
               <i class="lni lni-heart"></i>
             </div>
             <div class="service-content">
-              <h4>School Branding</h4>
+              <h4 class="mb-3">School Branding</h4>
               <p>
                 Customize forms with your school logo, name, contacts, and intake year.
                 Create a professional, branded experience for applicants.
@@ -347,12 +386,12 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
-          <div class="single-services">
+          <div class="single-services h-100">
             <div class="service-icon">
               <i class="lni lni-wallet"></i>
             </div>
             <div class="service-content">
-              <h4>Secure Payment Integration</h4>
+              <h4 class="mb-3">Secure Payment Integration</h4>
               <p>
                 Accept payments via M-Pesa, Airtel Money, and Tigo Pesa.
                 Secure, automated processing with instant verification and receipts.
@@ -361,12 +400,12 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
-          <div class="single-services">
+          <div class="single-services h-100">
             <div class="service-icon">
               <i class="lni lni-users"></i>
             </div>
             <div class="service-content">
-              <h4>Applicant Management</h4>
+              <h4 class="mb-3">Applicant Management</h4>
               <p>
                 Track all submissions in one dashboard. View applicant details,
                 payment status, documents, and manage the entire admission process.
@@ -375,12 +414,12 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
-          <div class="single-services">
+          <div class="single-services h-100">
             <div class="service-icon">
               <i class="lni lni-link"></i>
             </div>
             <div class="service-content">
-              <h4>Shareable Public Links</h4>
+              <h4 class="mb-3">Shareable Public Links</h4>
               <p>
                 System automatically generates unique public URLs for your forms.
                 Share via website, social media, WhatsApp, or email instantly.
@@ -389,12 +428,12 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
-          <div class="single-services">
+          <div class="single-services h-100">
             <div class="service-icon">
               <i class="lni lni-download"></i>
             </div>
             <div class="service-content">
-              <h4>Data Export & Reports</h4>
+              <h4 class="mb-3">Data Export & Reports</h4>
               <p>
                 Export applicant data in Excel, CSV, or PDF formats.
                 Generate reports on payments, conversions, and applicant statistics.
@@ -409,7 +448,7 @@
 
 
   <!-- Start Pricing  Area -->
-  <section id="pricing" class="pricing-area pricing-fourteen">
+  <section id="pricing" class="pricing-area pricing-fourteen py-5">
     <!--======  Start Section Title Five ======-->
     <div class="section-title-five">
       <div class="container">
@@ -417,7 +456,7 @@
           <div class="col-12">
             <div class="content">
               <h6>Pricing</h6>
-              <h2 class="fw-bold">Pay Only When You Earn</h2>
+              <h2 class="fw-bold mt-3 mb-3">Pay Only When You Earn</h2>
               <p>
                 No upfront costs. Schools pay nothing until they start receiving applications.
                 We only take a small commission from successful form sales.
@@ -431,7 +470,7 @@
     </div>
     <!--======  End Section Title Five ======-->
     <div class="container">
-      <div class="row">
+      <div class="row g-4">
         <div class="col-lg-4 col-md-6 col-12">
           <div class="pricing-style-fourteen">
             <div class="table-head">
@@ -528,23 +567,24 @@
       </div>
     </div>
   </section>
-  <!--/ End Pricing  Area -->
 
-
-
-  <!-- Start Cta Area -->
   <section id="call-action" class="call-action">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-9">
-          <div class="inner-content">
-            <h2>Ready to Transform Your <br />School's Admission Process?</h2>
-            <p>
+        <div class="col-xxl-8 col-xl-9 col-lg-10 col-md-11">
+          <div class="inner-content text-center">
+            <h2 class="mb-4">Ready to Transform Your <br class="d-none d-md-block" />School's Admission Process?</h2>
+            <p class="mb-4">
               Join hundreds of schools already using our platform to streamline admissions,
-              reduce administrative burden, and provide a better experience for applicants.<br />
+              reduce administrative burden, and provide a better experience for applicants.
+            </p>
+            <p class="mb-4">
               Get started in minutes - no upfront costs, no credit card required.
             </p>
-          
+            <div class="button mt-4">
+              <a href="{{ route('register') }}" class="btn primary-btn me-3">Start Free Trial</a>
+              <a href="{{ route('login') }}" class="btn primary-btn-outline">School Login</a>
+            </div>
           </div>
         </div>
       </div>
@@ -555,7 +595,7 @@
 
 
   <!-- Start Latest News Area -->
-  <div id="blog" class="latest-news-area section">
+  <div id="blog" class="latest-news-area section py-5">
     <!--======  Start Section Title Five ======-->
     <div class="section-title-five">
       <div class="container">
@@ -563,7 +603,7 @@
           <div class="col-12">
             <div class="content">
               <h6>Success Stories</h6>
-              <h2 class="fw-bold">Schools Trust Our Platform</h2>
+              <h2 class="fw-bold mt-3 mb-3">Schools Trust Our Platform</h2>
               <p>
                 See how schools are transforming their admission process and
                 saving time while improving applicant experience.
@@ -577,7 +617,7 @@
     </div>
     <!--======  End Section Title Five ======-->
     <div class="container">
-      <div class="row">
+      <div class="row g-4">
         <div class="col-lg-4 col-md-6 col-12">
           <!-- Single News -->
           <div class="single-news">
@@ -654,7 +694,7 @@
   <!-- End Latest News Area -->
 
   <!-- Start Brand Area -->
-  <div id="clients" class="brand-area section">
+  <div id="clients" class="brand-area section py-5">
     <!--======  Start Section Title Five ======-->
     <div class="section-title-five">
       <div class="container">
@@ -662,7 +702,7 @@
           <div class="col-12">
             <div class="content">
               <h6>Trusted By</h6>
-              <h2 class="fw-bold">Schools Across Tanzania</h2>
+              <h2 class="fw-bold mt-3 mb-3">Schools Across Tanzania</h2>
               <p>
                 Our platform is trusted by private secondary schools, colleges,
                 vocational training centers, international schools, and primary schools.
@@ -705,20 +745,20 @@
   <!-- End Brand Area -->
 
   <!-- ========================= contact-section start ========================= -->
-  <section id="contact" class="contact-section">
+  <section id="contact" class="contact-section py-5">
     <div class="container">
       <div class="row">
-        <div class="col-xl-4">
+        <div class="col-xl-4 mb-5 mb-xl-0">
           <div class="contact-item-wrapper">
-            <div class="row">
+            <div class="row g-4">
               <div class="col-12 col-md-6 col-xl-12">
                 <div class="contact-item">
                   <div class="contact-icon">
                     <i class="lni lni-phone"></i>
                   </div>
                   <div class="contact-content">
-                    <h4>Contact</h4>
-                    <p>+255 XXX XXX XXX</p>
+                    <h4 class="mb-3">Contact</h4>
+                    <p class="mb-2">+255 XXX XXX XXX</p>
                     <p>support@soscomtech.com</p>
                   </div>
                 </div>
@@ -729,8 +769,8 @@
                     <i class="lni lni-map-marker"></i>
                   </div>
                   <div class="contact-content">
-                    <h4>Address</h4>
-                    <p>Dar es Salaam, Tanzania</p>
+                    <h4 class="mb-3">Address</h4>
+                    <p class="mb-2">Dar es Salaam, Tanzania</p>
                     <p>East Africa</p>
                   </div>
                 </div>
@@ -741,8 +781,8 @@
                     <i class="lni lni-alarm-clock"></i>
                   </div>
                   <div class="contact-content">
-                    <h4>Support</h4>
-                    <p>24/7 Platform Access</p>
+                    <h4 class="mb-3">Support</h4>
+                    <p class="mb-2">24/7 Platform Access</p>
                     <p>Office hours: Mon-Fri 9 AM - 5 PM EAT</p>
                   </div>
                 </div>
@@ -754,9 +794,9 @@
           <div class="contact-form-wrapper">
             <div class="row">
               <div class="col-xl-10 col-lg-8 mx-auto">
-                <div class="section-title text-center">
+                <div class="section-title text-center mb-5">
                   <span> Get in Touch </span>
-                  <h2>
+                  <h2 class="mt-3 mb-3">
                     Have Questions? We're Here to Help
                   </h2>
                   <p>
@@ -767,31 +807,31 @@
               </div>
             </div>
             <form action="#" class="contact-form">
-              <div class="row">
-                <div class="col-md-6">
-                  <input type="text" name="name" id="name" placeholder="Name" required />
+              <div class="row mb-3">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <input type="text" name="name" id="name" placeholder="Your Name" required class="form-control" />
                 </div>
                 <div class="col-md-6">
-                  <input type="email" name="email" id="email" placeholder="Email" required />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <input type="text" name="phone" id="phone" placeholder="Phone" required />
-                </div>
-                <div class="col-md-6">
-                  <input type="text" name="subject" id="email" placeholder="Subject" required />
+                  <input type="email" name="email" id="email" placeholder="Your Email" required class="form-control" />
                 </div>
               </div>
-              <div class="row">
+              <div class="row mb-3">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <input type="text" name="phone" id="phone" placeholder="Phone Number" required class="form-control" />
+                </div>
+                <div class="col-md-6">
+                  <input type="text" name="subject" id="subject" placeholder="Subject" required class="form-control" />
+                </div>
+              </div>
+              <div class="row mb-4">
                 <div class="col-12">
-                  <textarea name="message" id="message" placeholder="Type Message" rows="5"></textarea>
+                  <textarea name="message" id="message" placeholder="Your Message" rows="6" required class="form-control"></textarea>
                 </div>
               </div>
               <div class="row">
                 <div class="col-12">
                   <div class="button text-center rounded-buttons">
-                    <button type="submit" class="btn primary-btn rounded-full">
+                    <button type="submit" class="btn primary-btn rounded-full px-5 py-3">
                       Send Message
                     </button>
                   </div>
@@ -805,18 +845,8 @@
   </section>
   <!-- ========================= contact-section end ========================= -->
 
-  <!-- ========================= map-section end ========================= -->
-  <section class="map-section map-style-9">
-    <div class="map-container">
-      <object style="border:0; height: 500px; width: 100%;"
-        data="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3102.7887109309127!2d-77.44196278417968!3d38.95165507956235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDU3JzA2LjAiTiA3N8KwMjYnMjMuMiJX!5e0!3m2!1sen!2sbd!4v1545420879707"></object>
-    </div>
-    </div>
-  </section>
-  <!-- ========================= map-section end ========================= -->
-
   <!-- Start Footer Area -->
-  <footer class="footer-area footer-eleven">
+  <footer class="footer-area footer-eleven bg-light">
     <!-- Start Footer Top -->
     <div class="footer-top">
       <div class="container">
@@ -827,7 +857,7 @@
               <div class="footer-widget f-about">
                 <div class="logo">
                   <a href="{{ route('welcome') }}">
-                    <img src="{{ asset('images/soscom.png') }}" alt="SOSCOM Technologies" class="img-fluid" style="height: 40px;" />
+                    <img src="{{ asset('images/logo/logo-dark.svg') }}" alt="SOSCOM Technologies" class="img-fluid" style="height: 40px;" />
                   </a>
                 </div>
                 <p>
@@ -897,10 +927,10 @@
   </a>
 
   <!--====== js ======-->
-  <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('assets/js/glightbox.min.js') }}"></script>
-  <script src="{{ asset('assets/js/main.js') }}"></script>
-  <script src="{{ asset('assets/js/tiny-slider.js') }}"></script>
+  <script src="{{ asset('landing/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('landing/js/glightbox.min.js') }}"></script>
+  <script src="{{ asset('landing/js/main.js') }}"></script>
+  <script src="{{ asset('landing/js/tiny-slider.js') }}"></script>
 
   <script>
 
@@ -934,8 +964,7 @@
       overlayLeft.classList.add("open");
     });
 
-    //========= glightbox (removed - no video needed)
-    // GLightbox can be added here if needed for future features
+
 
   </script>
 </body>

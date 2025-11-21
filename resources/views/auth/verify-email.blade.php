@@ -6,7 +6,7 @@
 
                 <div class="card text-center p-5 w-100" style="max-width: 500px;">
                     <div class="brand-logo mb-3">
-                        <img src="{{ asset('images/soscom.png') }}" style="height: 30px;">
+                        <img src="{{ asset('images/logo/logo-dark.svg') }}" style="height: 30px;">
                     </div>
                     <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
                         {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}

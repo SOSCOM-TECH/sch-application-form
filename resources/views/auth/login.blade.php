@@ -7,7 +7,7 @@
                 <div class="card text-center p-5 w-100" style="max-width: 500px;">
                     <x-auth-session-status class="mb-4" :status="session('status')" />
                     <div class="brand-logo mb-3">
-                        <img src="{{ asset('images/soscom.png') }}" style="height: 30px;">
+                        <img src="{{ asset('images/logo/logo-dark.svg') }}" style="height: 30px;">
                     </div>
                     <form method="POST" action="{{ route('login') }}" class="pt-3">
                         @csrf

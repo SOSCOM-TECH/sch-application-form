@@ -8,7 +8,7 @@
         <!-- Logo -->
         <div class="w-100 mb-4 d-flex">
             <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="{{ route('dashboard') }}">
-                <img src="{{ asset('images/soscom.png') }}" class="navbar-brand-img" alt="Logo"
+                <img src="{{ asset('images/logo/logo-dark.svg') }}" class="navbar-brand-img" alt="Logo"
                     style="height: 30px">
             </a>
         </div>

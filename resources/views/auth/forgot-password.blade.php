@@ -7,7 +7,7 @@
                 <div class="card text-center p-5 w-100" style="max-width: 500px;">
                     <x-auth-session-status class="mb-4" :status="session('status')" />
                     <div class="brand-logo mb-3">
-                        <img src="{{ asset('images/soscom.png') }}" style="height: 30px;">
+                        <img src="{{ asset('images/logo/logo-dark.svg') }}" style="height: 30px;">
                     </div>
                     <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
                         {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}

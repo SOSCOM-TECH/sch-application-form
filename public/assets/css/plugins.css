@@ -3551,8 +3551,8 @@ temporary rendered events).
     background: #6C757D !important;
     border-color: #6C757D !important; }
   .fc-event.fc-info .fc-content:before {
-    background: #48ABF7 !important;
-    border-color: #48ABF7 !important; }
+    background: #39a092 !important;
+    border-color: #39a092 !important; }
   .fc-event.fc-success .fc-content:before {
     background: #31CE36 !important;
     border-color: #31CE36 !important; }
@@ -3577,8 +3577,8 @@ temporary rendered events).
     background: #6C757D !important;
     border-color: #6C757D !important; }
   .fc-event.fc-info-solid {
-    background: #48ABF7 !important;
-    border-color: #48ABF7 !important; }
+    background: #39a092 !important;
+    border-color: #39a092 !important; }
   .fc-event.fc-success-solid {
     background: #31CE36 !important;
     border-color: #31CE36 !important; }
@@ -3596,7 +3596,7 @@ temporary rendered events).
 .fc-list-item.fc-secondary .fc-event-dot, .fc-list-item.fc-secondary-solid .fc-event-dot {
   background: #6C757D !important; }
 .fc-list-item.fc-info .fc-event-dot, .fc-list-item.fc-info-solid .fc-event-dot {
-  background: #48ABF7 !important; }
+  background: #39a092 !important; }
 .fc-list-item.fc-success .fc-event-dot, .fc-list-item.fc-success-solid .fc-event-dot {
   background: #31CE36 !important; }
 .fc-list-item.fc-danger .fc-event-dot, .fc-list-item.danger-solid .fc-event-dot {
@@ -5727,8 +5727,8 @@ div.table-responsive > div.dataTables_wrapper > div.row {
   color: #ffffff !important; }
 
 .select2-info .select2-selection__choice {
-  background: #48ABF7 !important;
-  border-color: #48ABF7 !important;
+  background: #39a092 !important;
+  border-color: #39a092 !important;
   color: #ffffff !important; }
 
 .select2-success .select2-selection__choice {
