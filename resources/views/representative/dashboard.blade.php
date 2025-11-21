@@ -88,6 +88,51 @@
         </div>
     </div>
 
+    <div class="row mt-3">
+        <div class="col-xl-4 col-lg-6 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center">
+                        <span class="mr-3"><i class="ti ti-wallet"></i></span>
+                        <div class="media-body text-right">
+                            <p class="fs-14 mb-2">School Amount Received</p>
+                            <span class="fs-28">{{ number_format($schoolAmountReceived ?? 0) }}</span>
+                            <small class="text-muted d-block mt-1">All successful payments</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center">
+                        <span class="mr-3"><i class="ti ti-arrow-up"></i></span>
+                        <div class="media-body text-right">
+                            <p class="fs-14 mb-2">Withdrawn</p>
+                            <span class="fs-28">{{ number_format($schoolAmountWithdrawn ?? 0) }}</span>
+                            <small class="text-muted d-block mt-1">Outstanding {{ number_format($schoolAmountOutstanding ?? 0) }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center">
+                        <span class="mr-3"><i class="ti ti-layout"></i></span>
+                        <div class="media-body text-right">
+                            <p class="fs-14 mb-2">System Share</p>
+                            <span class="fs-28">{{ number_format($systemShareForSchool ?? 0) }}</span>
+                            <small class="text-muted d-block mt-1">Commission retained</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-lg-8">
             <div class="card">
@@ -115,6 +160,55 @@
                 </div>
                 <div class="card-body">
                     <div id="applicantsTrend" class="ct-chart ct-major-twelfth"></div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Recent Payments & Withdrawals</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Ref</th>
+                                    <th>Form</th>
+                                    <th>Amount</th>
+                                    <th>School Amount</th>
+                                    <th>School Withdrawn</th>
+                                    <th>System Amount</th>
+                                    <th>System Withdrawn</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse (($recentPayments ?? collect()) as $payment)
+                                    <tr>
+                                        <td>{{ $payment->reference }}</td>
+                                        <td>{{ $payment->form->title ?? '—' }}</td>
+                                        <td>{{ number_format($payment->amount) }}</td>
+                                        <td>{{ number_format($payment->school_amount) }}</td>
+                                        <td>
+                                            <span class="badge badge-{{ $payment->school_withdrawn ? 'success' : 'secondary' }}">
+                                                {{ $payment->school_withdrawn ? 'Withdrawn' : 'Pending' }}
+                                            </span>
+                                        </td>
+                                        <td>{{ number_format($payment->system_amount) }}</td>
+                                        <td>
+                                            <span class="badge badge-{{ $payment->system_withdrawn ? 'success' : 'secondary' }}">
+                                                {{ $payment->system_withdrawn ? 'Withdrawn' : 'Pending' }}
+                                            </span>
+                                        </td>
+                                        <td>{{ $payment->created_at->format('Y-m-d') }}</td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="8">No payments yet.</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

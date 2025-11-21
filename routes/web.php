@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -7,15 +8,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', DashboardController::class)->middleware(['auth', 'verified'])->name('dashboard');
 
 // Admin dashboard (admin role only)
 Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
-    Route::get('/admin', function () {
-        return view('dashboard');
-    })->name('admin.dashboard');
+    Route::get('/admin', DashboardController::class)->name('admin.dashboard');
 
     // Admin: Roles & Permissions
     Route::get('/admin/roles', [\App\Http\Controllers\Admin\RolePermissionController::class, 'index'])->name('admin.roles.index');

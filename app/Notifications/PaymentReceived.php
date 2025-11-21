@@ -28,8 +28,8 @@ class PaymentReceived extends Notification
             ->greeting('Hello,')
             ->line("A new payment has been received for form '{$this->form->title}'.")
             ->line('Amount: '.number_format($this->payment->amount).' TZS')
-            ->line('Platform commission: '.number_format($this->payment->commission_amount).' TZS')
-            ->line('Net to school: '.number_format($this->payment->net_amount).' TZS')
+            ->line('System amount (SOSCOM): '.number_format($this->payment->system_amount).' TZS')
+            ->line('School amount: '.number_format($this->payment->school_amount).' TZS')
             ->action('View Applicants', url('/client/applicants'));
     }
 }
