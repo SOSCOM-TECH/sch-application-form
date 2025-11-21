@@ -6,7 +6,7 @@
 
                 <div class="card text-center p-5 w-100" style="max-width: 500px;">
                     <div class="brand-logo mb-3">
-                        <img src="{{ asset('images/logo/logo-dark.svg') }}" style="height: 30px;">
+                        <img src="{{ asset('images/logo/logo-dark.svg') }}" >
                     </div>
                     <form method="POST" action="{{ route('password.store') }}" class="pt-3">
                         @csrf

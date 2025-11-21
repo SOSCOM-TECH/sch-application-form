@@ -134,7 +134,7 @@
       <div class="sidebar-menu">
         <h5 class="menu-title">Quick Links</h5>
         <ul>
-          <li><a href="{{ route('login') }}">School Login</a></li>
+          <li><a href="{{ route('login') }}">Login</a></li>
           <li><a href="{{ route('register') }}">Register School</a></li>
           <li><a href="#services">Features</a></li>
           <li><a href="#contact">Contact Us</a></li>
@@ -181,7 +181,7 @@
             </p>
             <div class="button mt-4">
               <a href="{{ route('register') }}" class="btn primary-btn me-3">Start Free Trial</a>
-              <a href="{{ route('login') }}" class="btn btn-info text-white">School Login</a>
+              <a href="{{ route('login') }}" class="btn btn-info text-white">Login</a>
             </div>
           </div>
         </div>
@@ -583,115 +583,13 @@
             </p>
             <div class="button mt-4">
               <a href="{{ route('register') }}" class="btn primary-btn me-3">Start Free Trial</a>
-              <a href="{{ route('login') }}" class="btn primary-btn-outline">School Login</a>
+              <a href="{{ route('login') }}" class="btn primary-btn-outline">Login</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- End Cta Area -->
-
-
-
-  <!-- Start Latest News Area -->
-  <div id="blog" class="latest-news-area section py-5">
-    <!--======  Start Section Title Five ======-->
-    <div class="section-title-five">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="content">
-              <h6>Success Stories</h6>
-              <h2 class="fw-bold mt-3 mb-3">Schools Trust Our Platform</h2>
-              <p>
-                See how schools are transforming their admission process and
-                saving time while improving applicant experience.
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- row -->
-      </div>
-      <!-- container -->
-    </div>
-    <!--======  End Section Title Five ======-->
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-4 col-md-6 col-12">
-          <!-- Single News -->
-          <div class="single-news">
-            <div class="image">
-              <a href="javascript:void(0)"><img class="thumb" src="landing/images/blog/1.jpg" alt="Blog" /></a>
-              <div class="meta-details">
-                <img class="thumb" src="landing/images/blog/b6.jpg" alt="Author" />
-                <span>BY TIM NORTON</span>
-              </div>
-            </div>
-            <div class="content-body">
-              <h4 class="title">
-                <a href="javascript:void(0)"> Streamlined Admissions Process </a>
-              </h4>
-              <p>
-                Private secondary schools are processing hundreds of applications
-                faster than ever before, with automated payments and organized data.
-              </p>
-            </div>
-          </div>
-          <!-- End Single News -->
-        </div>
-        <div class="col-lg-4 col-md-6 col-12">
-          <!-- Single News -->
-          <div class="single-news">
-            <div class="image">
-              <a href="javascript:void(0)"><img class="thumb" src="landing/images/blog/2.jpg" alt="Blog" /></a>
-              <div class="meta-details">
-                <img class="thumb" src="landing/images/blog/b6.jpg" alt="Author" />
-                <span>BY TIM NORTON</span>
-              </div>
-            </div>
-            <div class="content-body">
-              <h4 class="title">
-                <a href="javascript:void(0)">
-                  Secure Payment Processing
-                </a>
-              </h4>
-              <p>
-                International schools benefit from integrated mobile money payments
-                (M-Pesa, Airtel Money, Tigo Pesa) with instant verification and receipts.
-              </p>
-            </div>
-          </div>
-          <!-- End Single News -->
-        </div>
-        <div class="col-lg-4 col-md-6 col-12">
-          <!-- Single News -->
-          <div class="single-news">
-            <div class="image">
-              <a href="javascript:void(0)"><img class="thumb" src="landing/images/blog/3.jpg" alt="Blog" /></a>
-              <div class="meta-details">
-                <img class="thumb" src="landing/images/blog/b6.jpg" alt="Author" />
-                <span>BY TIM NORTON</span>
-              </div>
-            </div>
-            <div class="content-body">
-              <h4 class="title">
-                <a href="javascript:void(0)">
-                  Reduced Administrative Overhead
-                </a>
-              </h4>
-              <p>
-                Vocational training centers are saving hours of manual work
-                with automated form submissions, payment tracking, and data exports.
-              </p>
-            </div>
-          </div>
-          <!-- End Single News -->
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End Latest News Area -->
 
   <!-- Start Brand Area -->
   <div id="clients" class="brand-area section py-5">
@@ -742,16 +640,15 @@
       </div>
     </div>
   </div>
-  <!-- End Brand Area -->
 
-  <!-- ========================= contact-section start ========================= -->
+
   <section id="contact" class="contact-section py-5">
     <div class="container">
       <div class="row">
-        <div class="col-xl-4 mb-5 mb-xl-0">
+        <div class="col-xl-12 mb-5 mb-xl-0">
           <div class="contact-item-wrapper">
             <div class="row g-4">
-              <div class="col-12 col-md-6 col-xl-12">
+              <div class="col-4 col-md-4">
                 <div class="contact-item">
                   <div class="contact-icon">
                     <i class="lni lni-phone"></i>
@@ -763,7 +660,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12 col-md-6 col-xl-12">
+              <div class="col-4 col-md-4">
                 <div class="contact-item">
                   <div class="contact-icon">
                     <i class="lni lni-map-marker"></i>
@@ -775,7 +672,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12 col-md-6 col-xl-12">
+              <div class="col-4 col-md-4">
                 <div class="contact-item">
                   <div class="contact-icon">
                     <i class="lni lni-alarm-clock"></i>
@@ -783,63 +680,14 @@
                   <div class="contact-content">
                     <h4 class="mb-3">Support</h4>
                     <p class="mb-2">24/7 Platform Access</p>
-                    <p>Office hours: Mon-Fri 9 AM - 5 PM EAT</p>
+                    <p>Available all the time</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-xl-8">
-          <div class="contact-form-wrapper">
-            <div class="row">
-              <div class="col-xl-10 col-lg-8 mx-auto">
-                <div class="section-title text-center mb-5">
-                  <span> Get in Touch </span>
-                  <h2 class="mt-3 mb-3">
-                    Have Questions? We're Here to Help
-                  </h2>
-                  <p>
-                    Contact us for more information about our platform, pricing,
-                    or to schedule a demo for your school.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <form action="#" class="contact-form">
-              <div class="row mb-3">
-                <div class="col-md-6 mb-3 mb-md-0">
-                  <input type="text" name="name" id="name" placeholder="Your Name" required class="form-control" />
-                </div>
-                <div class="col-md-6">
-                  <input type="email" name="email" id="email" placeholder="Your Email" required class="form-control" />
-                </div>
-              </div>
-              <div class="row mb-3">
-                <div class="col-md-6 mb-3 mb-md-0">
-                  <input type="text" name="phone" id="phone" placeholder="Phone Number" required class="form-control" />
-                </div>
-                <div class="col-md-6">
-                  <input type="text" name="subject" id="subject" placeholder="Subject" required class="form-control" />
-                </div>
-              </div>
-              <div class="row mb-4">
-                <div class="col-12">
-                  <textarea name="message" id="message" placeholder="Your Message" rows="6" required class="form-control"></textarea>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="button text-center rounded-buttons">
-                    <button type="submit" class="btn primary-btn rounded-full px-5 py-3">
-                      Send Message
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+
       </div>
     </div>
   </section>
