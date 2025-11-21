@@ -9,22 +9,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   <!--====== Title ======-->
-  <title>School Application Form Platform | Digital Admissions Made Easy</title>
+  <title>Shule Chap | Digital Admissions Made Easy</title>
 
   <!--====== Favicon Icon ======-->
-  <link rel="shortcut icon" href="{{ asset('assets/images/favicon.svg') }}" type="image/svg" />
+  <link rel="shortcut icon" href="{{ asset('images/iconWhite.png') }}" type="image/svg" />
 
   <!--====== Bootstrap css ======-->
-  <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
+  <link rel="stylesheet" href="{{ asset('landing/css/bootstrap.min.css') }}" />
 
   <!--====== Line Icons css ======-->
-  <link rel="stylesheet" href="{{ asset('assets/css/lineicons.css') }}" />
+  <link rel="stylesheet" href="{{ asset('landing/css/lineicons.css') }}" />
 
   <!--====== Tiny Slider css ======-->
-  <link rel="stylesheet" href="{{ asset('assets/css/tiny-slider.css') }}" />
+  <link rel="stylesheet" href="{{ asset('landing/css/tiny-slider.css') }}" />
 
   <!--====== gLightBox css ======-->
-  <link rel="stylesheet" href="{{ asset('assets/css/glightbox.min.css') }}" />
+  <link rel="stylesheet" href="{{ asset('landing/css/glightbox.min.css') }}" />
 
   <link rel="stylesheet" href="{{ asset('style.css') }}" />
 </head>
@@ -63,7 +63,7 @@
                   <a class="page-scroll" href="#contact">Contact</a>
                 </li>
               </ul>
-              
+
             </div>
 
             <div class="navbar-btn d-none d-lg-inline-block">
@@ -135,9 +135,9 @@
           <div class="header-content">
             <h1>Digital School Application Forms Made Simple</h1>
             <p>
-              Transform your school's admission process with our all-in-one platform. 
-              Create, publish, and sell online application forms with secure payments, 
-              automated management, and professional branding. Say goodbye to paper forms 
+              Transform your school's admission process with our all-in-one platform.
+              Create, publish, and sell online application forms with secure payments,
+              automated management, and professional branding. Say goodbye to paper forms
               and manual cash handling.
             </p>
             <div class="button">
@@ -148,7 +148,7 @@
         </div>
         <div class="col-lg-6 col-md-12 col-12">
           <div class="header-image">
-            <img src="assets/images/header/hero-image.jpg" alt="#" />
+            <img src="landing/images/header/hero-image.jpg" alt="#" />
           </div>
         </div>
       </div>
@@ -246,7 +246,7 @@
               <circle cx="60.333" cy="132" r="1.66667" fill="#DADADA" />
               <circle cx="104" cy="132" r="1.66667" fill="#DADADA" />
             </svg>
-            <img src="assets/images/about/about-img1.jpg" alt="about" />
+            <img src="landing/images/about/about-img1.jpg" alt="about" />
           </div>
         </div>
         <div class="col-lg-6 col-12">
@@ -266,21 +266,21 @@
               </nav>
               <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-who" role="tabpanel" aria-labelledby="nav-who-tab">
-                  <p>Schools currently struggle with manual processes - printing physical forms, distributing them, 
-                    collecting cash payments (fraud risk), and managing stacks of paperwork. This creates administrative 
+                  <p>Schools currently struggle with manual processes - printing physical forms, distributing them,
+                    collecting cash payments (fraud risk), and managing stacks of paperwork. This creates administrative
                     burden, delays, and potential security issues.</p>
                   <p>Time-consuming manual work takes away from focusing on what matters most - educating students.</p>
                 </div>
                 <div class="tab-pane fade" id="nav-vision" role="tabpanel" aria-labelledby="nav-vision-tab">
-                  <p>Our platform provides digital distribution, automated payments via mobile money (M-Pesa, Airtel Money, Tigo Pesa), 
-                    organized submissions, and reduced admin overhead. Schools get a branded form builder, secure payment processing, 
+                  <p>Our platform provides digital distribution, automated payments via mobile money (M-Pesa, Airtel Money, Tigo Pesa),
+                    organized submissions, and reduced admin overhead. Schools get a branded form builder, secure payment processing,
                     applicant management dashboard, and automated data export.</p>
                   <p>Everything you need in one place, accessible anytime, anywhere.</p>
                 </div>
                 <div class="tab-pane fade" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">
-                  <p>Perfect for private secondary schools, colleges, vocational training centers, international schools, 
+                  <p>Perfect for private secondary schools, colleges, vocational training centers, international schools,
                     and nursery & primary schools with competitive enrollment.</p>
-                  <p>Whether you're processing 50 or 5,000 applicants, our platform scales with your needs and helps you 
+                  <p>Whether you're processing 50 or 5,000 applicants, our platform scales with your needs and helps you
                     manage admissions efficiently.</p>
                 </div>
               </div>
@@ -305,7 +305,7 @@
               <h6>Features</h6>
               <h2 class="fw-bold">Everything You Need for Digital Admissions</h2>
               <p>
-                Powerful features designed to streamline your school's application process 
+                Powerful features designed to streamline your school's application process
                 and reduce administrative burden while improving applicant experience.
               </p>
             </div>
@@ -326,7 +326,7 @@
             <div class="service-content">
               <h4>Self-Service Form Builder</h4>
               <p>
-                Create custom application forms with drag-and-drop simplicity. 
+                Create custom application forms with drag-and-drop simplicity.
                 Add fields for student information, documents, and more - no coding required.
               </p>
             </div>
@@ -340,7 +340,7 @@
             <div class="service-content">
               <h4>School Branding</h4>
               <p>
-                Customize forms with your school logo, name, contacts, and intake year. 
+                Customize forms with your school logo, name, contacts, and intake year.
                 Create a professional, branded experience for applicants.
               </p>
             </div>
@@ -354,7 +354,7 @@
             <div class="service-content">
               <h4>Secure Payment Integration</h4>
               <p>
-                Accept payments via M-Pesa, Airtel Money, and Tigo Pesa. 
+                Accept payments via M-Pesa, Airtel Money, and Tigo Pesa.
                 Secure, automated processing with instant verification and receipts.
               </p>
             </div>
@@ -368,7 +368,7 @@
             <div class="service-content">
               <h4>Applicant Management</h4>
               <p>
-                Track all submissions in one dashboard. View applicant details, 
+                Track all submissions in one dashboard. View applicant details,
                 payment status, documents, and manage the entire admission process.
               </p>
             </div>
@@ -382,7 +382,7 @@
             <div class="service-content">
               <h4>Shareable Public Links</h4>
               <p>
-                System automatically generates unique public URLs for your forms. 
+                System automatically generates unique public URLs for your forms.
                 Share via website, social media, WhatsApp, or email instantly.
               </p>
             </div>
@@ -396,7 +396,7 @@
             <div class="service-content">
               <h4>Data Export & Reports</h4>
               <p>
-                Export applicant data in Excel, CSV, or PDF formats. 
+                Export applicant data in Excel, CSV, or PDF formats.
                 Generate reports on payments, conversions, and applicant statistics.
               </p>
             </div>
@@ -419,7 +419,7 @@
               <h6>Pricing</h6>
               <h2 class="fw-bold">Pay Only When You Earn</h2>
               <p>
-                No upfront costs. Schools pay nothing until they start receiving applications. 
+                No upfront costs. Schools pay nothing until they start receiving applications.
                 We only take a small commission from successful form sales.
               </p>
             </div>
@@ -540,14 +540,11 @@
           <div class="inner-content">
             <h2>Ready to Transform Your <br />School's Admission Process?</h2>
             <p>
-              Join hundreds of schools already using our platform to streamline admissions, 
+              Join hundreds of schools already using our platform to streamline admissions,
               reduce administrative burden, and provide a better experience for applicants.<br />
               Get started in minutes - no upfront costs, no credit card required.
             </p>
-            <div class="light-rounded-buttons">
-              <a href="{{ route('register') }}" class="btn primary-btn-outline">Register Your School</a>
-              <a href="{{ route('login') }}" class="btn primary-btn ms-2">Login to Dashboard</a>
-            </div>
+          
           </div>
         </div>
       </div>
@@ -568,7 +565,7 @@
               <h6>Success Stories</h6>
               <h2 class="fw-bold">Schools Trust Our Platform</h2>
               <p>
-                See how schools are transforming their admission process and 
+                See how schools are transforming their admission process and
                 saving time while improving applicant experience.
               </p>
             </div>
@@ -585,9 +582,9 @@
           <!-- Single News -->
           <div class="single-news">
             <div class="image">
-              <a href="javascript:void(0)"><img class="thumb" src="assets/images/blog/1.jpg" alt="Blog" /></a>
+              <a href="javascript:void(0)"><img class="thumb" src="landing/images/blog/1.jpg" alt="Blog" /></a>
               <div class="meta-details">
-                <img class="thumb" src="assets/images/blog/b6.jpg" alt="Author" />
+                <img class="thumb" src="landing/images/blog/b6.jpg" alt="Author" />
                 <span>BY TIM NORTON</span>
               </div>
             </div>
@@ -596,7 +593,7 @@
                 <a href="javascript:void(0)"> Streamlined Admissions Process </a>
               </h4>
               <p>
-                Private secondary schools are processing hundreds of applications 
+                Private secondary schools are processing hundreds of applications
                 faster than ever before, with automated payments and organized data.
               </p>
             </div>
@@ -607,9 +604,9 @@
           <!-- Single News -->
           <div class="single-news">
             <div class="image">
-              <a href="javascript:void(0)"><img class="thumb" src="assets/images/blog/2.jpg" alt="Blog" /></a>
+              <a href="javascript:void(0)"><img class="thumb" src="landing/images/blog/2.jpg" alt="Blog" /></a>
               <div class="meta-details">
-                <img class="thumb" src="assets/images/blog/b6.jpg" alt="Author" />
+                <img class="thumb" src="landing/images/blog/b6.jpg" alt="Author" />
                 <span>BY TIM NORTON</span>
               </div>
             </div>
@@ -620,7 +617,7 @@
                 </a>
               </h4>
               <p>
-                International schools benefit from integrated mobile money payments 
+                International schools benefit from integrated mobile money payments
                 (M-Pesa, Airtel Money, Tigo Pesa) with instant verification and receipts.
               </p>
             </div>
@@ -631,9 +628,9 @@
           <!-- Single News -->
           <div class="single-news">
             <div class="image">
-              <a href="javascript:void(0)"><img class="thumb" src="assets/images/blog/3.jpg" alt="Blog" /></a>
+              <a href="javascript:void(0)"><img class="thumb" src="landing/images/blog/3.jpg" alt="Blog" /></a>
               <div class="meta-details">
-                <img class="thumb" src="assets/images/blog/b6.jpg" alt="Author" />
+                <img class="thumb" src="landing/images/blog/b6.jpg" alt="Author" />
                 <span>BY TIM NORTON</span>
               </div>
             </div>
@@ -644,7 +641,7 @@
                 </a>
               </h4>
               <p>
-                Vocational training centers are saving hours of manual work 
+                Vocational training centers are saving hours of manual work
                 with automated form submissions, payment tracking, and data exports.
               </p>
             </div>
@@ -667,7 +664,7 @@
               <h6>Trusted By</h6>
               <h2 class="fw-bold">Schools Across Tanzania</h2>
               <p>
-                Our platform is trusted by private secondary schools, colleges, 
+                Our platform is trusted by private secondary schools, colleges,
                 vocational training centers, international schools, and primary schools.
               </p>
             </div>
@@ -683,22 +680,22 @@
         <div class="col-lg-8 offset-lg-2 col-12">
           <div class="clients-logos">
             <div class="single-image">
-              <img src="assets/images/client-logo/graygrids.svg" alt="Brand Logo Images" />
+              <img src="landing/images/client-logo/graygrids.svg" alt="Brand Logo Images" />
             </div>
             <div class="single-image">
-              <img src="assets/images/client-logo/uideck.svg" alt="Brand Logo Images" />
+              <img src="landing/images/client-logo/uideck.svg" alt="Brand Logo Images" />
             </div>
             <div class="single-image">
-              <img src="assets/images/client-logo/ayroui.svg" alt="Brand Logo Images" />
+              <img src="landing/images/client-logo/ayroui.svg" alt="Brand Logo Images" />
             </div>
             <div class="single-image">
-              <img src="assets/images/client-logo/lineicons.svg" alt="Brand Logo Images" />
+              <img src="landing/images/client-logo/lineicons.svg" alt="Brand Logo Images" />
             </div>
             <div class="single-image">
-              <img src="assets/images/client-logo/tailwindtemplates.svg" alt="Brand Logo Images" />
+                <img src="landing/images/client-logo/tailwindtemplates.svg" alt="Brand Logo Images" />
             </div>
             <div class="single-image">
-              <img src="assets/images/client-logo/ecomhtml.svg" alt="Brand Logo Images" />
+              <img src="landing/images/client-logo/ecomhtml.svg" alt="Brand Logo Images" />
             </div>
           </div>
         </div>
@@ -763,7 +760,7 @@
                     Have Questions? We're Here to Help
                   </h2>
                   <p>
-                    Contact us for more information about our platform, pricing, 
+                    Contact us for more information about our platform, pricing,
                     or to schedule a demo for your school.
                   </p>
                 </div>
@@ -834,11 +831,11 @@
                   </a>
                 </div>
                 <p>
-                  Empowering schools with digital solutions for modern admission processes. 
+                  Empowering schools with digital solutions for modern admission processes.
                   Transform your administrative workflow and focus on what matters - education.
                 </p>
                 <p class="copyright-text">
-                  <span>© {{ date('Y') }} SOSCOM Technologies.</span> All rights reserved. 
+                  <span>© {{ date('Y') }} SOSCOM Technologies.</span> All rights reserved.
                 </p>
               </div>
               <!-- End Single Widget -->
@@ -893,7 +890,7 @@
   </footer>
   <!--/ End Footer Area -->
 
-	
+
 
   <a href="#" class="scroll-top btn-hover">
     <i class="lni lni-chevron-up"></i>

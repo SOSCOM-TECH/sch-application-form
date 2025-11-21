@@ -1,22 +1,32 @@
 <x-app-layout>
 
-    <div class="row page-titles mx-0 border">
-        <div class="col-sm-6 p-md-0">
-            <div class="welcome-text">
-                <h4>Applicants</h4>
-            </div>
-        </div>
-        <div class="col-sm-6 p-md-0 d-flex justify-content-end align-items-center">
-            <div class="btn-group">
-                <a href="{{ route('rep.applicants.export.csv') }}" class="btn btn-outline-secondary">Export CSV</a>
-                <a href="{{ route('rep.applicants.export.xlsx') }}" class="btn btn-outline-secondary">Export Excel</a>
-                <a href="{{ route('rep.applicants.export.pdf') }}" class="btn btn-outline-secondary">Print/PDF</a>
-            </div>
+
+
+    <div class="row align-items-center mb-3 border-bottom no-gutters">
+        <div class="col">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                        aria-controls="home" aria-selected="true">
+                        Applicants
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 
+    <div class="row my-2">
+        <div class="col-md-12">
     <div class="card">
         <div class="card-body">
+            <div class="mb-3">
+                <div class="btn-group">
+                    <a href="{{ route('rep.applicants.export.csv') }}" class="btn btn-outline-secondary">Export CSV</a>
+                    <a href="{{ route('rep.applicants.export.xlsx') }}" class="btn btn-outline-secondary">Export Excel</a>
+                    <a href="{{ route('rep.applicants.export.pdf') }}" class="btn btn-outline-secondary">Print/PDF</a>
+                </div>
+            </div>
+
             <form method="GET" class="row g-3 mb-3">
                 <div class="col-md-3">
                     <label class="form-label">Payment Status</label>
@@ -45,7 +55,7 @@
             </form>
 
             <div class="table-responsive">
-                <table class="table">
+                <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
                             <th>Submission Ref</th>
@@ -66,7 +76,7 @@
                                 <td><span class="badge badge-{{ optional($s->payment)->status === 'success' ? 'success' : 'secondary' }}">{{ optional($s->payment)->status ?? '-' }}</span></td>
                                 <td>{{ number_format(optional($s->payment)->amount ?? 0) }}</td>
                                 <td>{{ $s->created_at->format('Y-m-d H:i') }}</td>
-                                <td><a href="{{ route('rep.applicants.show', $s) }}" class="btn btn-sm btn-outline-primary">View</a></td>
+                                <td><a href="{{ route('rep.applicants.show', $s) }}" class="btn btn-sm btn-outline-primary">Open</a></td>
                             </tr>
                         @empty
                             <tr><td colspan="7">No applicants found.</td></tr>
@@ -75,6 +85,8 @@
                 </table>
             </div>
             {{ $submissions->links() }}
+        </div>
+    </div>
         </div>
     </div>
 

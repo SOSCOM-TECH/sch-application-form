@@ -1,19 +1,28 @@
 <x-app-layout>
 
-    <div class="row page-titles mx-0 border">
-        <div class="col-sm-6 p-md-0">
-            <div class="welcome-text">
-                <h4>Form Preview</h4>
-                <span class="text-muted">{{ $form->title }}</span>
-            </div>
-        </div>
-        <div class="col-sm-6 p-md-0 d-flex justify-content-end align-items-center">
-            <a href="{{ route('rep.forms.builder', $form) }}" class="btn btn-outline-secondary"><i class="ti ti-pencil-alt"></i> Back to Builder</a>
+
+
+    <div class="row align-items-center mb-3 border-bottom no-gutters">
+        <div class="col">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                        aria-controls="home" aria-selected="true">
+                        Form Preview - {{ $form->title }}
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 
+    <div class="row my-2">
+        <div class="col-md-12">
     <div class="card">
         <div class="card-body">
+            <div class="mb-3 text-end">
+                <a href="{{ route('rep.forms.builder', $form) }}" class="btn btn-outline-secondary"><i class="ti ti-pencil-alt"></i> Back to Builder</a>
+            </div>
+
             @if ($form->fields->isEmpty())
                 <p class="text-muted">No fields to preview.</p>
             @else
@@ -52,6 +61,8 @@
                     @endforeach
                 </form>
             @endif
+        </div>
+    </div>
         </div>
     </div>
 

@@ -1,47 +1,40 @@
-<div class="header border shadow-none mt-2">
-    <div class="header-content">
-        <nav class="navbar navbar-expand">
-            <div class="collapse navbar-collapse justify-content-between">
-                <div class="header-left d-flex align-items-center" style="font-size: 20px; color:#262626;">
-                <span>Test on nav if shown</span>
+<nav class="navbar navbar-light bg-white border mb-4">
+
+    <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
+        <i class="fe fe-menu navbar-toggler-icon"></i>
+    </button>
+
+    <ul class="nav ms-auto align-items-center">
+        <li class="nav-item dropdown">
+            <a class="nav-link text-muted" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                <i class="fe fe-layers"></i>
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-end p-3 shadow-lg border-0 rounded-3" style="min-width: 250px;">
+                <div class="mb-2">
+                    <h6 class="fw-bold mb-0">Quick Actions</h6>
+                    <small class="text-muted">Shortcuts</small>
                 </div>
 
-                <ul class="navbar-nav header-right">
+                <div class="row g-2">
 
-                    <li class="nav-item dropdown notification_dropdown">
-                        <a class="nav-link text-dark" href="#" role="button" data-toggle="dropdown" style="color:#262626;">
-                            <i class="ti-bell" style="color:#262626;"></i>
-                            <div class="pulse-css"></div>
-                        </a>
 
-                    </li>
 
-                    <li class="nav-item dropdown header-profile">
-                        <a class="nav-link text-dark" href="#" role="button" data-toggle="dropdown" style="color:#262626;">
-                            <i class="ti-user" style="color:#262626;"></i>
-                            {{ auth()->user()->name }}
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <x-responsive-nav-link :href="route('profile.edit')">
-                                <i class="icon-user"></i>
-                                <span class="ml-2">Profile </span>
-                            </x-responsive-nav-link>
-
-                            <div class="dropdown-item">
-
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <button type="submit" class="your-link-styled-class">
-                                        <i class="icon-key"></i>
-                                        <span class="ml-2">Logout</span>
-                                    </button>
-                                </form>
-
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                </div>
             </div>
-        </nav>
-    </div>
-</div>
+        </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link text-muted d-flex align-items-center" href="{{ route('profile.edit') }}">
+                <span class="avatar avatar-sm m-1"
+                    style="width: 32px; height: 32px; overflow: hidden; display: inline-block;">
+                    <img src="{{ asset(Auth::user()->file ?? 'images/profile.jpg') }}" alt="..."
+                        class="avatar-img rounded-circle"
+                        style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;">
+                </span>
+                <span class="fw-bold">{{ Auth::user()->name }}</span>
+            </a>
+        </li>
+    </ul>
+</nav>

@@ -1,28 +1,44 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-100">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-        <title>User Authentication</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <title>{{ config('app.name', 'Shule Chap') }} - Authentication</title>
 
-         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/logo.png') }}">
-         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        <!-- Scripts -->
-        {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-    </head>
-    <body class="font-sans text-gray-900 antialiased">
+    <link rel="stylesheet" href="{{ asset('css/simplebar.css') }}">
+    <!-- Fonts CSS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- Icons CSS -->
+    <link rel="stylesheet" href="{{ asset('css/feather.css') }}">
+    <!-- Date Range Picker CSS -->
+    <link rel="stylesheet" href="{{ asset('css/daterangepicker.css') }}">
+    <!-- App CSS -->
+    <link rel="stylesheet" href="{{ asset('css/app-light.css') }}" id="lightTheme">
+    <link rel="stylesheet" href="{{ asset('css/app-dark.css') }}" id="darkTheme" disabled>
 
-        {{ $slot }}
+</head>
 
-    <script src="{{ asset('vendor/global/global.min.js') }}"></script>
-    <script src="{{ asset('js/quixnav-init.js') }}"></script>
-    <script src="{{ asset('js/custom.min.js') }}"></script>
-    </body>
+<body class="bg-light">
+    <div class="wrapper vh-100">
+        <div class="row align-items-center h-100">
+
+            {{ $slot }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
 </html>

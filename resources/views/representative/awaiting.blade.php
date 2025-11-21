@@ -1,13 +1,22 @@
 <x-app-layout>
 
-    <div class="row page-titles mx-0 border">
-        <div class="col-sm-6 p-md-0">
-            <div class="welcome-text">
-                <h4>Awaiting School Approval</h4>
-            </div>
+
+
+    <div class="row align-items-center mb-3 border-bottom no-gutters">
+        <div class="col">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                        aria-controls="home" aria-selected="true">
+                        Awaiting School Approval
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 
+    <div class="row my-2">
+        <div class="col-md-12">
     <div class="card">
         <div class="card-body">
             @php
@@ -27,6 +36,8 @@
                 </div>
                 <a href="{{ route('rep.requests.create') }}" class="btn btn-primary">Submit School Registration</a>
             @endif
+        </div>
+    </div>
         </div>
     </div>
 

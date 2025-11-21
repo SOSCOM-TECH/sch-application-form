@@ -1,19 +1,28 @@
 <x-app-layout>
 
-    <div class="row page-titles mx-0 border">
-        <div class="col-sm-6 p-md-0">
-            <div class="welcome-text">
-                <h4>Applicant Detail</h4>
-                <span class="text-muted">Submission {{ $submission->reference }}</span>
-            </div>
-        </div>
-        <div class="col-sm-6 p-md-0 d-flex justify-content-end align-items-center">
-            <button class="btn btn-outline-secondary" onclick="window.print()"><i class="ti ti-printer"></i> Print</button>
+
+
+    <div class="row align-items-center mb-3 border-bottom no-gutters">
+        <div class="col">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                        aria-controls="home" aria-selected="true">
+                        Applicant Detail - {{ $submission->reference }}
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 
+    <div class="row my-2">
+        <div class="col-md-12">
     <div class="card">
         <div class="card-body">
+            <div class="mb-3 text-end">
+                <button class="btn btn-outline-secondary" onclick="window.print()"><i class="ti ti-printer"></i> Print</button>
+            </div>
+
             <div class="mb-3">
                 <strong>Form:</strong> {{ $submission->form->title }}<br>
                 <strong>Payment Ref:</strong> {{ optional($submission->payment)->reference }} ({{ optional($submission->payment)->status }})<br>
@@ -22,7 +31,7 @@
 
             <h5 class="mb-2">Answers</h5>
             <div class="table-responsive mb-4">
-                <table class="table">
+                <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
                             <th>Field</th>
@@ -55,6 +64,8 @@
                     @endforeach
                 </ul>
             @endif
+        </div>
+    </div>
         </div>
     </div>
 

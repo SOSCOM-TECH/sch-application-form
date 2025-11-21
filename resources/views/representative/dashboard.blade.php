@@ -1,28 +1,22 @@
 <x-app-layout>
 
-    <div class="row page-titles mx-0 border">
-        <div class="col-sm-6 p-md-0">
-            <div class="welcome-text">
-                <h4>{{ $school->name }} — School Dashboard</h4>
-                <span class="text-muted">Registration # {{ $school->registration_number ?? '—' }}</span>
-            </div>
-        </div>
-        <div class="col-sm-6 p-md-0 justify-content-sm-end mt-sm-0 d-flex">
-            <ol class="breadcrumb">
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
 
-                    <x-responsive-nav-link :href="route('logout')"
-                        onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
-                        <i class="icon-key text-danger"></i>
-                        <span class="ml-2 text-danger">Logout </span>
-                    </x-responsive-nav-link>
-                </form>
-            </ol>
+
+    <div class="row align-items-center mb-3 border-bottom no-gutters">
+        <div class="col">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                        aria-controls="home" aria-selected="true">
+                        {{ $school->name }} — School Dashboard
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 
+    <div class="row my-2">
+        <div class="col-md-12">
     <div class="row">
         <div class="col-xl-3 col-lg-6 col-sm-6">
             <div class="card">
@@ -197,6 +191,8 @@
             }
         });
     </script>
+        </div>
+    </div>
 
 </x-app-layout>
 
