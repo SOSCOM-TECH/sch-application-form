@@ -28,8 +28,10 @@
                             <th>Form</th>
                             <th>Status</th>
                             <th>Amount</th>
-                            <th>Commission</th>
-                            <th>Net to School</th>
+                            <th>System (SOSCOM)</th>
+                            <th>School Amount</th>
+                            <th>System Withdrawn</th>
+                            <th>School Withdrawn</th>
                             <th>Date</th>
                         </tr>
                     </thead>
@@ -41,8 +43,18 @@
                                 <td>{{ $p->form->title }}</td>
                                 <td><span class="badge badge-{{ $p->status === 'success' ? 'success' : 'secondary' }}">{{ ucfirst($p->status) }}</span></td>
                                 <td>{{ number_format($p->amount) }}</td>
-                                <td>{{ $p->commission_rate }}% ({{ number_format($p->commission_amount) }})</td>
-                                <td>{{ number_format($p->net_amount) }}</td>
+                                <td>{{ $p->commission_rate }}% ({{ number_format($p->system_amount) }})</td>
+                                <td>{{ number_format($p->school_amount) }}</td>
+                                <td>
+                                    <span class="badge badge-{{ $p->system_withdrawn ? 'success' : 'secondary' }}">
+                                        {{ $p->system_withdrawn ? 'Withdrawn' : 'Pending' }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="badge badge-{{ $p->school_withdrawn ? 'success' : 'secondary' }}">
+                                        {{ $p->school_withdrawn ? 'Withdrawn' : 'Pending' }}
+                                    </span>
+                                </td>
                                 <td>{{ $p->created_at->format('Y-m-d H:i') }}</td>
                             </tr>
                         @empty

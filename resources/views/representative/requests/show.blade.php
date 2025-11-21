@@ -29,6 +29,7 @@
                     <p class="mb-1"><strong>Type:</strong> {{ $request->school_type ?: '-' }}</p>
                     <p class="mb-1"><strong>Registration #:</strong> {{ $request->registration_number ?: '-' }}</p>
                     <p class="mb-1"><strong>Address:</strong> {{ $request->address ?: '-' }}</p>
+                    <p class="mb-1"><strong>Commission Rate:</strong> {{ $request->commission_rate ?? '-' }}%</p>
                     <p class="mb-1"><strong>Status:</strong>
                         <span class="badge badge-{{ $request->status === 'approved' ? 'success' : ($request->status === 'rejected' ? 'danger' : 'warning') }}">
                             {{ ucfirst($request->status) }}

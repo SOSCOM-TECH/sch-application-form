@@ -54,17 +54,19 @@ class ApplyController extends Controller
         abort_unless(!$submission->payment_id, 400, 'Payment already completed for this submission.');
 
         $reference = strtoupper(Str::random(10));
-        $commissionRate = 15;
-        $commissionAmount = (int) round(($form->application_fee * $commissionRate) / 100);
-        $netAmount = max(0, $form->application_fee - $commissionAmount);
+        $commissionRate = (int) ($form->school->commission_rate ?? 15);
+        $systemAmount = (int) round(($form->application_fee * $commissionRate) / 100);
+        $schoolAmount = max(0, $form->application_fee - $systemAmount);
         $payment = Payment::create([
             'representative_id' => $form->school->user_id,
             'school_id' => $form->school_id,
             'form_id' => $form->id,
             'amount' => $form->application_fee,
             'commission_rate' => $commissionRate,
-            'commission_amount' => $commissionAmount,
-            'net_amount' => $netAmount,
+            'commission_amount' => $systemAmount,
+            'net_amount' => $schoolAmount,
+            'system_amount' => $systemAmount,
+            'school_amount' => $schoolAmount,
             'reference' => $reference,
             'status' => 'success',
             'payer_phone' => $validated['phone'],
@@ -82,7 +84,13 @@ class ApplyController extends Controller
             'form_id' => $form->id,
             'reference' => $payment->reference,
             'message' => 'Payment simulated success',
-            'context' => ['amount' => $payment->amount, 'commission' => $payment->commission_amount, 'submission_ref' => $submission->reference],
+            'context' => [
+                'amount' => $payment->amount,
+                'commission' => $payment->commission_amount,
+                'system_amount' => $payment->system_amount,
+                'school_amount' => $payment->school_amount,
+                'submission_ref' => $submission->reference,
+            ],
         ]);
 
         // Notify representative

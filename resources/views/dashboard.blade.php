@@ -106,6 +106,53 @@
             </div>
         </div>
     </div>
+    @php($payoutSummary = $schoolPayoutSummary ?? ['received' => 0, 'withdrawn' => 0, 'outstanding' => 0, 'system_share' => 0])
+    @if ($school)
+    <div class="row mt-3">
+        <div class="col-xl-3 col-lg-6 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center">
+                        <span class="mr-3"><i class="ti ti-wallet"></i></span>
+                        <div class="media-body text-right">
+                            <p class="fs-14 mb-2">School Amount Received</p>
+                            <span class="fs-28">{{ number_format($payoutSummary['received']) }}</span>
+                            <small class="text-muted d-block mt-1">From successful payments</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center">
+                        <span class="mr-3"><i class="ti ti-credit-card"></i></span>
+                        <div class="media-body text-right">
+                            <p class="fs-14 mb-2">Withdrawn</p>
+                            <span class="fs-28">{{ number_format($payoutSummary['withdrawn']) }}</span>
+                            <small class="text-muted d-block mt-1">Outstanding {{ number_format($payoutSummary['outstanding']) }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center">
+                        <span class="mr-3"><i class="ti ti-layout"></i></span>
+                        <div class="media-body text-right">
+                            <p class="fs-14 mb-2">System Share</p>
+                            <span class="fs-28">{{ number_format($payoutSummary['system_share']) }}</span>
+                            <small class="text-muted d-block mt-1">Commission retained</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
     @endrole
 
     @role('admin')
@@ -174,6 +221,51 @@
     </div>
 
     <div class="row">
+        <div class="col-xl-4 col-lg-6 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center">
+                        <span class="mr-3"><i class="ti ti-server"></i></span>
+                        <div class="media-body text-right">
+                            <p class="fs-14 mb-2">System Amount (SOSCOM)</p>
+                            <span class="fs-28">{{ number_format($systemAmountReceived ?? 0) }}</span>
+                            <small class="text-muted d-block mt-1">Withdrawn {{ number_format($systemAmountWithdrawn ?? 0) }} · Outstanding {{ number_format($systemAmountOutstanding ?? 0) }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center">
+                        <span class="mr-3"><i class="ti ti-building"></i></span>
+                        <div class="media-body text-right">
+                            <p class="fs-14 mb-2">Schools Amount (All)</p>
+                            <span class="fs-28">{{ number_format($schoolsAmountReceived ?? 0) }}</span>
+                            <small class="text-muted d-block mt-1">Withdrawn {{ number_format($schoolsAmountWithdrawn ?? 0) }} · Outstanding {{ number_format($schoolsAmountOutstanding ?? 0) }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center">
+                        <span class="mr-3"><i class="ti ti-bar-chart"></i></span>
+                        <div class="media-body text-right">
+                            <p class="fs-14 mb-2">Gross Amount</p>
+                            <span class="fs-28">{{ number_format(($totalRevenueTzs ?? 0)) }}</span>
+                            <small class="text-muted d-block mt-1">System + Schools</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-lg-8">
             <div class="card">
                 <div class="card-header">
@@ -194,6 +286,58 @@
                     <div class="text-center mt-2">
                         <span class="badge badge-success mr-2">Approved</span>
                         <span class="badge badge-secondary">Pending</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h4 class="card-title mb-0">Recent Payments & Withdrawals</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Ref</th>
+                                    <th>School</th>
+                                    <th>System Amount</th>
+                                    <th>System Withdrawn</th>
+                                    <th>School Amount</th>
+                                    <th>School Withdrawn</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse (($systemLedger ?? collect()) as $payment)
+                                    <tr>
+                                        <td>{{ $payment->reference }}</td>
+                                        <td>{{ $payment->school->name ?? '—' }}</td>
+                                        <td>{{ number_format($payment->system_amount) }}</td>
+                                        <td>
+                                            <span class="badge badge-{{ $payment->system_withdrawn ? 'success' : 'secondary' }}">
+                                                {{ $payment->system_withdrawn ? 'Withdrawn' : 'Pending' }}
+                                            </span>
+                                        </td>
+                                        <td>{{ number_format($payment->school_amount) }}</td>
+                                        <td>
+                                            <span class="badge badge-{{ $payment->school_withdrawn ? 'success' : 'secondary' }}">
+                                                {{ $payment->school_withdrawn ? 'Withdrawn' : 'Pending' }}
+                                            </span>
+                                        </td>
+                                        <td>{{ $payment->created_at->format('Y-m-d') }}</td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="7">No payments recorded yet.</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

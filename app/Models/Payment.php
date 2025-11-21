@@ -15,9 +15,27 @@ class Payment extends Model
         'school_id',
         'form_id',
         'amount',
+        'commission_rate',
+        'commission_amount',
+        'net_amount',
+        'system_amount',
+        'school_amount',
+        'system_withdrawn',
+        'school_withdrawn',
         'reference',
         'status',
         'payer_phone',
+    ];
+
+    protected $casts = [
+        'commission_rate' => 'integer',
+        'amount' => 'integer',
+        'commission_amount' => 'integer',
+        'net_amount' => 'integer',
+        'system_amount' => 'integer',
+        'school_amount' => 'integer',
+        'system_withdrawn' => 'boolean',
+        'school_withdrawn' => 'boolean',
     ];
 
     public function form(): BelongsTo
