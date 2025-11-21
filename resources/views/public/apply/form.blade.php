@@ -13,7 +13,6 @@
                                 <small class="text-muted">{{ $form->school->name }}</small>
                             </div>
                         </div>
-                        <span class="badge badge-success">Payment Verified</span>
                     </div>
                     <div class="card-body">
                         @if ($form->fields->isEmpty())
@@ -21,7 +20,6 @@
                         @else
                             <form method="POST" action="{{ route('public.apply.submit', $form->slug) }}" enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" name="ref" value="{{ request('ref') }}">
                                 @foreach ($form->fields as $field)
                                     <div class="mb-3">
                                         <label class="form-label">{{ $field->label }} @if($field->required)<span class="text-danger">*</span>@endif</label>

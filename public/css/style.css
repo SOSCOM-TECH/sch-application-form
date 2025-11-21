@@ -8228,8 +8228,9 @@ a {
   z-index: 3;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   padding-left: 16rem;
-  transition: all .2s ease; }
-  .header .header-content {
+  transition: all .2s ease;
+ }
+  /* .header .header-content {
     height: 100%;
     padding-left: 5.3125rem;
     padding-right: 1.875rem;
@@ -8241,10 +8242,10 @@ a {
   .header .navbar {
     padding: 0;
     height: 100%;
-    width: 100%; }
-    .header .navbar .navbar-collapse {
+    width: 100%; } */
+    /* .header .navbar .navbar-collapse {
       height: 100%;
-      width: 100%; }
+      width: 100%; } */
 
 /* pulse in SVG */
 svg.pulse-svg {

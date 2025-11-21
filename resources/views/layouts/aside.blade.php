@@ -2,16 +2,14 @@
     <div class="quixnav-scroll">
         <ul class="metismenu" id="menu">
 
-@role('admin')
+         @role('admin')
             <li><a href="{{ route('dashboard') }}"><i class="ti ti-home"></i><span
                         class="nav-text">Dashboard</span></a>
             </li>
             @endrole
             @role('school_representative')
             <li>
-                <a href="{{ route('client.dashboard') }}"><i class="ti ti-home"></i>
-                    <span class="nav-text">Dashboard</span>
-                </a>
+                <a href="{{ route('client.dashboard') }}"><i class="ti ti-home"></i><span class="nav-text">Dashboard</span></a>
             </li>
             @php($regReq = auth()->user()->schoolRegistrationRequest)
             <li>

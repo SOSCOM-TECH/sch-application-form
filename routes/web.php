@@ -78,10 +78,10 @@ Route::middleware(['auth', 'verified', 'role:school_representative'])->group(fun
 });
 
 // Public applicant routes (simulation)
-Route::get('/apply/{slug}', [\App\Http\Controllers\Public\ApplyController::class, 'pay'])->middleware('throttle:60,1')->name('public.apply.pay');
-Route::post('/apply/{slug}/simulate', [\App\Http\Controllers\Public\ApplyController::class, 'simulate'])->middleware('throttle:20,1')->name('public.apply.simulate');
-Route::get('/apply/{slug}/form', [\App\Http\Controllers\Public\ApplyController::class, 'form'])->middleware('throttle:60,1')->name('public.apply.form');
+Route::get('/apply/{slug}', [\App\Http\Controllers\Public\ApplyController::class, 'form'])->middleware('throttle:60,1')->name('public.apply.form');
 Route::post('/apply/{slug}/submit', [\App\Http\Controllers\Public\ApplyController::class, 'submit'])->middleware('throttle:20,1')->name('public.apply.submit');
+Route::get('/apply/{slug}/pay', [\App\Http\Controllers\Public\ApplyController::class, 'pay'])->middleware('throttle:60,1')->name('public.apply.pay');
+Route::post('/apply/{slug}/simulate', [\App\Http\Controllers\Public\ApplyController::class, 'simulate'])->middleware('throttle:20,1')->name('public.apply.simulate');
 Route::get('/apply/{slug}/confirmation', [\App\Http\Controllers\Public\ApplyController::class, 'confirmation'])->name('public.apply.confirmation');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

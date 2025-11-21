@@ -18,7 +18,7 @@
                         <button class="btn btn-warning"><i class="ti ti-eye-off"></i> Unpublish</button>
                     </form>
                 </div>
-                <a href="{{ route('public.apply.pay', $form->slug) }}" target="_blank" class="btn btn-success">
+                <a href="{{ route('public.apply.form', $form->slug) }}" target="_blank" class="btn btn-success">
                     <i class="ti ti-link"></i> Public URL
                 </a>
             @else
@@ -86,7 +86,7 @@
                         @if ($form->is_active)
                             <div class="alert alert-info">
                                 This form is currently <strong>published</strong>. Changes will reflect immediately. Public link:
-                                <a href="{{ route('public.apply.pay', $form->slug) }}" target="_blank">{{ route('public.apply.pay', $form->slug) }}</a>
+                                <a href="{{ route('public.apply.form', $form->slug) }}" target="_blank">{{ route('public.apply.form', $form->slug) }}</a>
                             </div>
                         @endif
                         <ul class="list-group">
