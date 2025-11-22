@@ -26,8 +26,7 @@ class SchoolRejected extends Notification
             ->greeting('Hello,')
             ->line('Your school verification request was rejected.')
             ->line('Reason: '.$this->reason)
-            ->action('Resubmit', url('/representative/registration-request'))
-            ->line('Please update your information and resubmit.');
+            ->line('Please contact an administrator for assistance.');
     }
 }
 

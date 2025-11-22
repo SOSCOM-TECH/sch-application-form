@@ -52,9 +52,4 @@ class User extends Authenticatable
     {
         return $this->hasOne(School::class);
     }
-
-    public function schoolRegistrationRequest(): HasOne
-    {
-        return $this->hasOne(SchoolRegistrationRequest::class);
-    }
 }

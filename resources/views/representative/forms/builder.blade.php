@@ -1,7 +1,5 @@
 <x-app-layout>
 
-
-
     <div class="row align-items-center mb-3 border-bottom no-gutters">
         <div class="col">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -116,7 +114,7 @@
                                             <form method="POST" action="{{ route('rep.forms.fields.destroy', [$form, $field]) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="btn btn-sm btn-outline-danger"><i class="ti ti-trash"></i></button>
+                                                <button class="btn btn-sm btn-outline-danger"><i class="fe fe-delete"></i></button>
                                             </form>
                                         </li>
                                     @endforeach

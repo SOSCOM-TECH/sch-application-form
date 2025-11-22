@@ -40,6 +40,18 @@ class SchoolController extends Controller
         $school->update(['status' => 'active']);
         return back()->with('status', 'School activated.');
     }
+
+    public function updatePackage(Request $request, School $school): RedirectResponse
+    {
+        $validated = $request->validate([
+            'package_id' => ['nullable', 'exists:packages,id'],
+        ]);
+
+        $school->update(['package_id' => $validated['package_id'] ?? null]);
+
+        $packageName = $school->package ? $school->package->name : 'legacy rate';
+        return back()->with('status', "Package updated to: {$packageName}.");
+    }
 }
 
 

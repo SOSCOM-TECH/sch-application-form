@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Payment;
 use App\Models\School;
-use App\Models\SchoolRegistrationRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
@@ -39,8 +38,8 @@ class DashboardController extends Controller
 
         return [
             'totalSchools' => School::count(),
-            'pendingRequests' => SchoolRegistrationRequest::where('status', 'pending')->count(),
-            'approvedRequests' => SchoolRegistrationRequest::where('status', 'approved')->count(),
+            'pendingRequests' => 0,
+            'approvedRequests' => 0,
             'totalRevenueTzs' => (clone $payments)->sum('amount'),
             'revenueGrowthPct' => null,
             'totalUsers' => User::count(),

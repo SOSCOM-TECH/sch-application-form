@@ -23,7 +23,7 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>Request ID</th>
+                            <th>School</th>
                             <th>Action</th>
                             <th>Note</th>
                             <th>Date</th>
@@ -32,7 +32,7 @@
                     <tbody>
                         @forelse ($audits as $a)
                             <tr>
-                                <td>{{ $a->school_registration_request_id }}</td>
+                                <td>{{ $a->school->name ?? 'N/A' }}</td>
                                 <td>{{ ucfirst($a->action) }}</td>
                                 <td>{{ $a->note }}</td>
                                 <td>{{ $a->created_at->format('Y-m-d H:i') }}</td>

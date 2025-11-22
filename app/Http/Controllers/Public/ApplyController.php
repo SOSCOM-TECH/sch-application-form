@@ -54,15 +54,20 @@ class ApplyController extends Controller
         abort_unless(!$submission->payment_id, 400, 'Payment already completed for this submission.');
 
         $reference = strtoupper(Str::random(10));
-        $commissionRate = (int) ($form->school->commission_rate ?? 15);
-        $systemAmount = (int) round(($form->application_fee * $commissionRate) / 100);
-        $schoolAmount = max(0, $form->application_fee - $systemAmount);
+        
+        // Use package percentage if available, otherwise fall back to commission_rate
+        $school = $form->school;
+        $systemPercentage = $school->package ? $school->package->system_percentage : ($school->commission_rate ?? 15);
+        $schoolPercentage = $school->package ? $school->package->school_percentage : (100 - $systemPercentage);
+        
+        $systemAmount = (int) round(($form->application_fee * $systemPercentage) / 100);
+        $schoolAmount = (int) round(($form->application_fee * $schoolPercentage) / 100);
         $payment = Payment::create([
             'representative_id' => $form->school->user_id,
             'school_id' => $form->school_id,
             'form_id' => $form->id,
             'amount' => $form->application_fee,
-            'commission_rate' => $commissionRate,
+            'commission_rate' => $systemPercentage,
             'commission_amount' => $systemAmount,
             'net_amount' => $schoolAmount,
             'system_amount' => $systemAmount,

@@ -51,6 +51,11 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
+        // Redirect school representatives to their dashboard
+        if ($user->hasRole('school_representative')) {
+            return redirect(route('client.dashboard', absolute: false));
+        }
+
         return redirect(route('dashboard', absolute: false));
     }
 }

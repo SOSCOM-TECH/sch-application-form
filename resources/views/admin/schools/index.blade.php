@@ -24,7 +24,7 @@
                     <label class="form-label">Status</label>
                     <select name="status" class="form-control" onchange="this.form.submit()">
                         <option value="">All</option>
-                        @foreach (['active','suspended'] as $s)
+                        @foreach (['pending','active','suspended'] as $s)
                             <option value="{{ $s }}" {{ request('status')===$s ? 'selected':'' }}>{{ ucfirst($s) }}</option>
                         @endforeach
                     </select>
@@ -51,7 +51,12 @@
                             <tr>
                                 <td>{{ $school->name }}</td>
                                 <td>{{ $school->representative->name }} ({{ $school->representative->email }})</td>
-                                <td><span class="badge badge-{{ $school->status==='active' ? 'success' : 'secondary' }}">{{ ucfirst($school->status) }}</span></td>
+                                <td>
+                                    <span class="badge badge-{{ 
+                                        $school->status==='active' ? 'success' : 
+                                        ($school->status==='pending' ? 'warning' : 'secondary') 
+                                    }}">{{ ucfirst($school->status) }}</span>
+                                </td>
                                 <td>{{ $school->created_at->format('Y-m-d') }}</td>
                                 <td><a href="{{ route('admin.schools.show', $school) }}" class="btn btn-sm btn-outline-primary">Open</a></td>
                             </tr>

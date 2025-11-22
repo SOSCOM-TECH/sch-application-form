@@ -29,20 +29,61 @@
                     <p><strong>Type:</strong> {{ $school->type ?? '-' }}</p>
                     <p><strong>Registration #:</strong> {{ $school->registration_number ?? '-' }}</p>
                     <p><strong>Address:</strong> {{ $school->address ?? '-' }}</p>
-                    <p><strong>Status:</strong> <span class="badge badge-{{ $school->status==='active' ? 'success' : 'secondary' }}">{{ ucfirst($school->status) }}</span></p>
+                    <p><strong>Status:</strong> 
+                        <span class="badge badge-{{ 
+                            $school->status==='active' ? 'success' : 
+                            ($school->status==='pending' ? 'warning' : 'secondary') 
+                        }}">{{ ucfirst($school->status) }}</span>
+                    </p>
+                    <p><strong>Package:</strong> 
+                        @if($school->package)
+                            <span class="badge badge-info">{{ $school->package->name }}</span> 
+                            (System: {{ $school->package->system_percentage }}%, School: {{ $school->package->school_percentage }}%)
+                        @else
+                            <span class="text-muted">Not assigned</span>
+                            @if($school->commission_rate)
+                                <small class="text-muted">(Using legacy rate: {{ $school->commission_rate }}%)</small>
+                            @endif
+                        @endif
+                    </p>
                 </div>
                 <div class="col-md-6 text-end">
                     @if ($school->status === 'active')
-                        <form method="POST" action="{{ route('admin.schools.suspend', $school) }}">
+                        <form method="POST" action="{{ route('admin.schools.suspend', $school) }}" class="d-inline">
                             @csrf
                             <button class="btn btn-warning">Suspend</button>
                         </form>
+                    @elseif ($school->status === 'pending')
+                        <form method="POST" action="{{ route('admin.schools.activate', $school) }}" class="d-inline">
+                            @csrf
+                            <button class="btn btn-success">Approve & Activate</button>
+                        </form>
                     @else
-                        <form method="POST" action="{{ route('admin.schools.activate', $school) }}">
+                        <form method="POST" action="{{ route('admin.schools.activate', $school) }}" class="d-inline">
                             @csrf
                             <button class="btn btn-success">Activate</button>
                         </form>
                     @endif
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <form method="POST" action="{{ route('admin.schools.updatePackage', $school) }}">
+                        @csrf
+                        <div class="form-group">
+                            <label for="package_id">Assign Package</label>
+                            <select name="package_id" id="package_id" class="form-control">
+                                <option value="">-- No Package (Use Legacy Rate) --</option>
+                                @foreach(\App\Models\Package::where('is_active', true)->orderBy('sort_order')->get() as $package)
+                                    <option value="{{ $package->id }}" {{ $school->package_id == $package->id ? 'selected' : '' }}>
+                                        {{ $package->name }} (System: {{ $package->system_percentage }}%, School: {{ $package->school_percentage }}%)
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm">Update Package</button>
+                    </form>
                 </div>
             </div>
         </div>

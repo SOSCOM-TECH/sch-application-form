@@ -11,15 +11,15 @@ class VerificationAudit extends Model
     use HasFactory;
 
     protected $fillable = [
-        'school_registration_request_id',
+        'school_id',
         'admin_user_id',
         'action',
         'note',
     ];
 
-    public function request(): BelongsTo
+    public function school(): BelongsTo
     {
-        return $this->belongsTo(SchoolRegistrationRequest::class, 'school_registration_request_id');
+        return $this->belongsTo(School::class, 'school_id');
     }
 }
 

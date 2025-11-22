@@ -16,12 +16,18 @@ class Form extends Model
         'title',
         'slug',
         'application_fee',
+        'payment_account_id',
         'is_active',
     ];
 
     public function school(): BelongsTo
     {
         return $this->belongsTo(School::class);
+    }
+
+    public function paymentAccount(): BelongsTo
+    {
+        return $this->belongsTo(PaymentAccount::class);
     }
 
     public function fields(): HasMany

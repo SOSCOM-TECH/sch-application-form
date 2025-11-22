@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Representative;
 use App\Http\Controllers\Controller;
 use App\Models\Form;
 use App\Models\FormField;
+use App\Models\PaymentAccount;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +30,10 @@ class FormController extends Controller
         if (! $school) {
             return redirect()->route('client.dashboard')->with('status', 'Submit school registration first.');
         }
-        return view('representative/forms/create', compact('school'));
+        
+        $paymentAccounts = $school->paymentAccounts()->orderBy('is_default', 'desc')->orderBy('created_at', 'desc')->get();
+        
+        return view('representative/forms/create', compact('school', 'paymentAccounts'));
     }
 
     public function store(Request $request): RedirectResponse
@@ -39,16 +43,59 @@ class FormController extends Controller
             return redirect()->route('client.dashboard');
         }
 
-        $validated = $request->validate([
+        $useExisting = $request->has('use_existing_account') && ($request->use_existing_account == '1' || $request->use_existing_account === true);
+
+        $rules = [
             'title' => ['required', 'string', 'max:255'],
             'application_fee' => ['nullable', 'integer', 'min:0'],
-        ]);
+        ];
+
+        if ($useExisting) {
+            $rules['payment_account_id'] = ['required', 'exists:payment_accounts,id'];
+        } else {
+            $rules['payment_type'] = ['required', 'in:bank,mobile'];
+            $rules['account_name'] = ['required', 'string', 'max:255'];
+            
+            if ($request->payment_type === 'bank') {
+                $rules['bank_provider'] = ['required', 'in:CRDB,NMB,NBC'];
+                $rules['account_number'] = ['required', 'string', 'max:255'];
+            } else {
+                $rules['mobile_provider'] = ['required', 'in:mpesa,tigopesa,airtel_money,halo_pesa'];
+                $rules['phone_number'] = ['required', 'string', 'regex:/^0[67]\d{8}$/'];
+                $rules['mobile_name'] = ['required', 'string', 'max:255'];
+            }
+        }
+
+        $validated = $request->validate($rules);
+
+        $paymentAccountId = null;
+
+        if ($useExisting && isset($validated['payment_account_id'])) {
+            // Use existing account
+            $paymentAccountId = $validated['payment_account_id'];
+        } else {
+            // Create new payment account
+            $paymentAccount = PaymentAccount::create([
+                'school_id' => $school->id,
+                'type' => $validated['payment_type'],
+                'provider' => $validated['payment_type'] === 'bank' 
+                    ? $validated['bank_provider'] 
+                    : $validated['mobile_provider'],
+                'account_number' => $validated['account_number'] ?? null,
+                'account_name' => $validated['account_name'],
+                'phone_number' => $validated['phone_number'] ?? null,
+                'mobile_name' => $validated['mobile_name'] ?? null,
+                'is_default' => false,
+            ]);
+            $paymentAccountId = $paymentAccount->id;
+        }
 
         $form = Form::create([
             'school_id' => $school->id,
             'title' => $validated['title'],
             'slug' => Str::slug($validated['title']).'-'.Str::random(6),
             'application_fee' => $validated['application_fee'] ?? 0,
+            'payment_account_id' => $paymentAccountId,
             'is_active' => false,
         ]);
 

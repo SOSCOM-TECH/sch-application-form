@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('verification_audits', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('school_registration_request_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('school_id')->constrained()->cascadeOnDelete();
             $table->foreignId('admin_user_id')->constrained('users')->cascadeOnDelete();
             $table->string('action'); // approved|rejected
             $table->text('note')->nullable();

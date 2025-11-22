@@ -17,8 +17,14 @@ class DashboardController extends Controller
         $user = Auth::user();
         $school = $user->school;
 
+        // Load packages for display when no school is registered
+        $packages = \App\Models\Package::where('is_active', true)->orderBy('sort_order')->get();
+
         if (! $school) {
-            return view('representative.awaiting');
+            return view('representative.dashboard', [
+                'school' => null,
+                'packages' => $packages,
+            ]);
         }
 
         $formIds = Form::where('school_id', $school->id)->pluck('id');
@@ -35,6 +41,7 @@ class DashboardController extends Controller
 
         return view('representative.dashboard', [
             'school' => $school,
+            'packages' => $packages,
             'applicantCount' => $applicantCount,
             'paidCount' => $paidCount,
             'revenueTzs' => $schoolAmountReceived,

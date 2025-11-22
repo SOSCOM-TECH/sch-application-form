@@ -12,7 +12,7 @@ class ComplianceController extends Controller
 {
     public function audits(Request $request): View
     {
-        $audits = VerificationAudit::with('request')->latest()->paginate(20);
+        $audits = VerificationAudit::with('school')->latest()->paginate(20);
         return view('admin.compliance.audits', compact('audits'));
     }
 

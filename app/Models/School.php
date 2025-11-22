@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class School extends Model
 {
@@ -22,6 +23,7 @@ class School extends Model
         'phone',
         'email',
         'commission_rate',
+        'package_id',
         'status',
     ];
 
@@ -32,6 +34,22 @@ class School extends Model
     public function representative(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function package(): BelongsTo
+    {
+        return $this->belongsTo(Package::class);
+    }
+
+    public function paymentAccounts(): HasMany
+    {
+        return $this->hasMany(PaymentAccount::class);
+    }
+
+    public function getEffectiveCommissionRateAttribute(): int
+    {
+        // Use package percentage if available, otherwise fall back to commission_rate
+        return $this->package ? $this->package->system_percentage : ($this->commission_rate ?? 15);
     }
 }
 

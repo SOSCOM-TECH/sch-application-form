@@ -4,14 +4,19 @@
 
     <div class="row align-items-center mb-3 border-bottom no-gutters">
         <div class="col">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                        aria-controls="home" aria-selected="true">
-                        Forms
-                    </a>
-                </li>
-            </ul>
+            <div class="d-flex align-items-center">
+                <ul class="nav nav-tabs flex-grow-1" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                            aria-controls="home" aria-selected="true">
+                            Forms
+                        </a>
+                    </li>
+                </ul>
+                <a href="{{ route('rep.forms.create') }}" class="btn btn-sm btn-primary ml-3">
+                    <i class="ti ti-plus"></i> New Form
+                </a>
+            </div>
         </div>
     </div>
 
@@ -19,10 +24,6 @@
         <div class="col-md-12">
     <div class="card">
         <div class="card-body">
-            <div class="mb-3">
-                <a href="{{ route('rep.forms.create') }}" class="btn btn-primary"><i class="ti ti-plus"></i> New Form</a>
-            </div>
-
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead>

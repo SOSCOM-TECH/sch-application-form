@@ -25,20 +25,27 @@ Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
     Route::get('/admin/users/create', [\App\Http\Controllers\Admin\AdminUserController::class, 'create'])->name('admin.users.create');
     Route::post('/admin/users', [\App\Http\Controllers\Admin\AdminUserController::class, 'store'])->name('admin.users.store');
 
-    // Admin: School registration requests
-    Route::get('/admin/requests', [\App\Http\Controllers\Admin\SchoolRegistrationReviewController::class, 'index'])->name('admin.requests.index');
-    Route::get('/admin/requests/{requestModel}', [\App\Http\Controllers\Admin\SchoolRegistrationReviewController::class, 'show'])->name('admin.requests.show');
-    Route::post('/admin/requests/{requestModel}/approve', [\App\Http\Controllers\Admin\SchoolRegistrationReviewController::class, 'approve'])->name('admin.requests.approve');
-    Route::post('/admin/requests/{requestModel}/reject', [\App\Http\Controllers\Admin\SchoolRegistrationReviewController::class, 'reject'])->name('admin.requests.reject');
 
     // Admin: Payments ledger
     Route::get('/admin/payments', [\App\Http\Controllers\Admin\PaymentController::class, 'index'])->name('admin.payments.index');
+
+    // Admin: Packages management
+    Route::resource('admin/packages', \App\Http\Controllers\Admin\PackageController::class)->names([
+        'index' => 'admin.packages.index',
+        'create' => 'admin.packages.create',
+        'store' => 'admin.packages.store',
+        'show' => 'admin.packages.show',
+        'edit' => 'admin.packages.edit',
+        'update' => 'admin.packages.update',
+        'destroy' => 'admin.packages.destroy',
+    ]);
 
     // Admin: Schools management
     Route::get('/admin/schools', [\App\Http\Controllers\Admin\SchoolController::class, 'index'])->name('admin.schools.index');
     Route::get('/admin/schools/{school}', [\App\Http\Controllers\Admin\SchoolController::class, 'show'])->name('admin.schools.show');
     Route::post('/admin/schools/{school}/suspend', [\App\Http\Controllers\Admin\SchoolController::class, 'suspend'])->name('admin.schools.suspend');
     Route::post('/admin/schools/{school}/activate', [\App\Http\Controllers\Admin\SchoolController::class, 'activate'])->name('admin.schools.activate');
+    Route::post('/admin/schools/{school}/package', [\App\Http\Controllers\Admin\SchoolController::class, 'updatePackage'])->name('admin.schools.updatePackage');
 
     // Admin: Compliance
     Route::get('/admin/compliance/audits', [\App\Http\Controllers\Admin\ComplianceController::class, 'audits'])->name('admin.compliance.audits');
@@ -48,7 +55,11 @@ Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
 // School representative dashboard
 Route::middleware(['auth', 'verified', 'role:school_representative'])->group(function () {
     Route::get('/client', \App\Http\Controllers\Representative\DashboardController::class)->name('client.dashboard');
-    Route::get('/client/school', \App\Http\Controllers\Representative\DashboardController::class)->name('client.school.dashboard');
+
+    // Representative: School Registration & Details
+    Route::get('/client/school-registration', [\App\Http\Controllers\Representative\SchoolRegistrationController::class, 'create'])->name('rep.school-registration.create');
+    Route::post('/client/school-registration', [\App\Http\Controllers\Representative\SchoolRegistrationController::class, 'store'])->name('rep.school-registration.store');
+    Route::get('/client/school', [\App\Http\Controllers\Representative\SchoolRegistrationController::class, 'show'])->name('rep.school.show');
 
     // Representative: Forms & Builder
     Route::get('/client/forms', [\App\Http\Controllers\Representative\FormController::class, 'index'])->name('rep.forms.index');
@@ -68,10 +79,6 @@ Route::middleware(['auth', 'verified', 'role:school_representative'])->group(fun
     Route::get('/client/applicants-export/xlsx', [\App\Http\Controllers\Representative\ApplicantController::class, 'exportXlsx'])->name('rep.applicants.export.xlsx');
     Route::get('/client/applicants-export/pdf', [\App\Http\Controllers\Representative\ApplicantController::class, 'exportPdf'])->name('rep.applicants.export.pdf');
 
-    // Representative: School registration request
-    Route::get('/representative/registration-request', [\App\Http\Controllers\Representative\SchoolRegistrationRequestController::class, 'create'])->name('rep.requests.create');
-    Route::post('/representative/registration-request', [\App\Http\Controllers\Representative\SchoolRegistrationRequestController::class, 'store'])->name('rep.requests.store');
-    Route::get('/representative/registration-request/{requestModel}', [\App\Http\Controllers\Representative\SchoolRegistrationRequestController::class, 'show'])->name('rep.requests.show');
 });
 
 // Public applicant routes (simulation)
